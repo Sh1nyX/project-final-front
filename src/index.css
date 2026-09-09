@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;500;600&family=Nunito+Sans:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inknut Antiqua', serif;
+  background: #dddbd7;
+  color: #211e1a;
+}

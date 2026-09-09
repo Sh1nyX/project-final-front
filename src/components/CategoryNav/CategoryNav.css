@@ -1,0 +1,223 @@
+.category-nav {
+  position: absolute;
+
+  left: 0;
+  top: 260px;
+
+  width: 100%;
+  height: 70px;
+
+  padding: 0 79px;
+
+  display: flex;
+  align-items: center;
+
+  font-family: 'Inknut Antiqua', serif;
+  color: #211e1a;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.category-list {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  width: calc(100% - 480px);
+
+  overflow: hidden;
+}
+
+.category-item {
+  flex-shrink: 0;
+
+  width: 90px;
+  height: 60px;
+
+  padding: 0;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-family: 'Inknut Antiqua', serif;
+  color: #211e1a;
+
+  cursor: pointer;
+}
+
+.category-icon {
+  width: 34px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 2px;
+}
+
+.category-icon img {
+  max-width: 28px;
+  max-height: 25px;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.category-item span {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+
+  white-space: nowrap;
+}
+
+
+/* Luxe */
+
+.category-item.luxe span {
+  font-family: 'Inknut Antiqua', serif;
+  font-weight: 500;
+}
+
+
+/* =========================
+   ARROW
+========================= */
+
+.category-arrow {
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+
+  margin-left: 8px;
+  padding: 0;
+
+  border: 1px solid #6f6558;
+  border-radius: 50%;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.category-arrow img {
+  width: 7px;
+  height: 12px;
+
+  object-fit: contain;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters-button {
+  flex-shrink: 0;
+
+  width: 110px;
+  height: 47px;
+
+  margin-left: 15px;
+
+  padding: 0;
+
+  border: 1px solid #6f6558;
+  border-radius: 26px;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  color: #2c2823;
+
+  cursor: pointer;
+}
+
+.filters-button img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+
+/* =========================
+   TAX TOGGLE
+========================= */
+
+.tax-toggle {
+  flex-shrink: 0;
+
+  width: 272px;
+  height: 47px;
+
+  margin-left: 12px;
+
+  padding: 0 9px 0 18px;
+
+  border: 1px solid #6f6558;
+  border-radius: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 10px;
+  font-weight: 500;
+
+  color: #2c2823;
+}
+
+.toggle {
+  width: 42px;
+  height: 23px;
+
+  padding: 2px;
+
+  border: none;
+  border-radius: 26px;
+
+  background: #6f6558;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  cursor: pointer;
+}
+
+.toggle span {
+  width: 19px;
+  height: 19px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+}
