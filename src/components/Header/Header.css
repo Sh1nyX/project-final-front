@@ -1,9 +1,7 @@
 .header {
   position: relative;
-
   width: 100%;
-  height: 230px;
-
+  height: 352px;
   padding: 0;
 
   font-family: 'Inknut Antiqua', serif;
@@ -255,9 +253,8 @@
 
 .map-button {
   position: absolute;
-
   left: 86.15%;
-  top: 1px;
+  top: 145px;
 
   width: 182px;
   height: 60px;
@@ -291,4 +288,183 @@
 .map-button img {
   width: 21px;
   height: 19px;
+}
+
+/* ========================================
+   COMPACT HEADER
+   ======================================== */
+
+.compact-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 120px;
+
+  z-index: 1000;
+
+  background: #dddbd7;
+
+  animation: compactHeaderAppear 0.25s ease-out;
+}
+
+
+/* ========================================
+   COMPACT HEADER ANIMATION
+   ======================================== */
+
+@keyframes compactHeaderAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   TOP ROW
+   ======================================== */
+
+.compact-top {
+  position: relative;
+
+  width: 100%;
+  height: 55px;
+}
+
+
+/* ========================================
+   LOGO
+   ======================================== */
+
+.compact-logo {
+  position: absolute;
+
+  left: 20px;
+  top: 7px;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40px;
+
+  color: #211e1a;
+}
+
+
+/* ========================================
+   SEARCH
+   ======================================== */
+
+.compact-search-row {
+  position: absolute;
+
+  left: 50%;
+  top: 5px;
+
+  width: 452px;
+  height: 45px;
+
+  transform: translateX(-50%);
+}
+
+
+.compact-search-bar {
+  position: relative;
+
+  width: 452px;
+  height: 45px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #2c2823;
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 5px 0 18px;
+}
+
+
+/* ========================================
+   SEARCH FIELDS
+   ======================================== */
+
+.compact-search-bar .search-field {
+  height: 30px;
+  padding: 0 12px;
+
+  justify-content: center;
+}
+
+
+.compact-search-bar .search-field.destination {
+  width: 85px;
+}
+
+
+.compact-search-bar .search-field:not(.destination) {
+  width: 125px;
+}
+
+
+.compact-search-bar .search-separator {
+  height: 27px;
+}
+
+
+/* ========================================
+   SEARCH BUTTON
+   ======================================== */
+
+.compact-search-bar .search-button {
+  width: 36px;
+  height: 36px;
+
+  margin-left: auto;
+}
+
+
+.compact-search-bar .search-button img {
+  width: 22px;
+  height: 22px;
+}
+
+
+/* ========================================
+   ACCOUNT
+   ======================================== */
+
+.compact-top .account-button {
+  position: absolute;
+
+  left: auto;
+  right: 20px;
+  top: 6px;
+
+  width: 76px;
+  height: 42px;
+
+  margin: 0;
+}
+
+
+/* ========================================
+   CATEGORIES
+   ======================================== */
+
+.compact-header > .category-nav {
+  position: absolute;
+
+  left: 0;
+  top: 55px;
+
+  width: 100%;
 }

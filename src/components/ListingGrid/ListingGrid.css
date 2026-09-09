@@ -1,0 +1,14 @@
+.listing-grid {
+  width: calc(100% - 158px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(6, 272px);
+
+  column-gap: 25px;
+  row-gap: 40px;
+
+  justify-content: center;
+}
