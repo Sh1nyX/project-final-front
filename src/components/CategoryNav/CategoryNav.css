@@ -33,6 +33,7 @@
 }
 
 .category-item {
+  position: relative;
   flex-shrink: 0;
 
   width: 90px;
@@ -53,6 +54,24 @@
   color: #211e1a;
 
   cursor: pointer;
+}
+
+.category-item.selected::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: #211e1a;
+}
+
+.category-item.selected .category-icon {
+  filter: brightness(0.65);
+}
+
+.category-item.selected .category-name {
+  color: #211e1a;
 }
 
 .category-icon {

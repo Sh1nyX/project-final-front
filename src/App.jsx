@@ -17,10 +17,25 @@ function App() {
   const [visibleCount, setVisibleCount] = useState(18)
 
   const [searchDates, setSearchDates] = useState({
-  check_in: '',
-  check_out: '',
-  flexible_days: 0,
-})
+    check_in: '',
+    check_out: '',
+    flexible_days: 0,
+    category_id: 1,
+  })
+
+  const [selectedCategory, setSelectedCategory] = useState({
+    id: 1,
+    name: 'Гарні краєвиди',
+  })
+
+  const handleCategoryChange = (category) => {
+  setSelectedCategory(category)
+
+  setSearchDates((prev) => ({
+    ...prev,
+    category_id: category.id,
+  }))
+}
 
 
  useEffect(() => {
@@ -35,9 +50,12 @@ function App() {
         check_in: searchDates.check_in,
         check_out: searchDates.check_out,
         flexible_days: searchDates.flexible_days,
+        category_id: searchDates.category_id,
         limit: 100,
         page: 1,
       })
+
+      
 
       console.log('SEARCH DATES:', searchDates)
       console.log('RESULTS:', data)
@@ -72,7 +90,11 @@ function App() {
 
   return (
     <>
-      <Header onDatesChange={setSearchDates} />
+      <Header
+        onDatesChange={setSearchDates}
+        selectedCategory={selectedCategory}
+        onCategoryChange={handleCategoryChange}
+      />
 
       <main>
 
@@ -92,6 +114,7 @@ function App() {
             />
 
             <ContinueCategory
+              categoryName={selectedCategory.name}
               onShowMore={handleShowMore}
               hasMore={hasMoreListings}
             />

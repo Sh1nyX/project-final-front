@@ -12,109 +12,97 @@ import fromDesignerIcon from '../../assets/categories-icons/from-designer-icon.s
 import nearSeaIcon from '../../assets/categories-icons/near-sea-icon.svg'
 import mansionIcon from '../../assets/categories-icons/mansion-icon.svg'
 import legendaryIcon from '../../assets/categories-icons/legendary-icon.svg'
+
 import filterIcon from '../../assets/filter-icon.svg'
 import arrowIcon from '../../assets/arrow-icon.svg'
 
 const categories = [
-  {
-    name: 'Гарні краєвиди',
-    icon: viewsIcon,
-  },
-  {
-    name: 'Невеликі квартири',
-    icon: smallApartmentsIcon,
-  },
-  {
-    name: 'Великі квартири',
-    icon: hugeApartmentsIcon,
-  },
-  {
-    name: 'Кімнати',
-    icon: roomsIcon,
-  },
-  {
-    name: 'Хостели',
-    icon: hostelIcon,
-  },
-  {
-    name: 'Luxe',
-    icon: luxeIcon,
-    className: 'luxe',
-  },
-  {
-    name: 'У центрі міста',
-    icon: centerIcon,
-  },
-  {
-    name: 'Сільська місцевість',
-    icon: villageIcon,
-  },
-  {
-    name: 'Від дизайнера',
-    icon: fromDesignerIcon,
-  },
-  {
-    name: 'Біля моря',
-    icon: nearSeaIcon,
-  },
-  {
-    name: 'Особняки',
-    icon: mansionIcon,
-  },
-  {
-    name: 'Легендарне',
-    icon: legendaryIcon,
-  },
+  { id: 1, name: 'Гарні краєвиди', icon: viewsIcon },
+  { id: 2, name: 'Невеликі квартири', icon: smallApartmentsIcon },
+  { id: 3, name: 'Великі квартири', icon: hugeApartmentsIcon },
+  { id: 4, name: 'Кімнати', icon: roomsIcon },
+  { id: 5, name: 'Хостели', icon: hostelIcon },
+  { id: 6, name: 'Luxe', icon: luxeIcon },
+  { id: 7, name: 'У центрі міста', icon: centerIcon },
+  { id: 8, name: 'Сільська місцевість', icon: villageIcon },
+  { id: 9, name: 'Від дизайнера', icon: fromDesignerIcon },
+  { id: 10, name: 'Біля моря', icon: nearSeaIcon },
+  { id: 11, name: 'Особняки', icon: mansionIcon },
+  { id: 12, name: 'Легендарне', icon: legendaryIcon },
 ]
 
-function CategoryNav() {
+function CategoryNav({
+  selectedCategory,
+  onCategoryChange,
+}) {
   return (
-    <div className="category-nav">
+    <nav className="category-nav">
 
       <div className="category-list">
+        {categories.map((category) => {
+          const isSelected =
+            selectedCategory?.id === category.id
 
-        {categories.map((category) => (
-          <button
-            className={`category-item ${category.className || ''}`}
-            key={category.name}
-          >
-            <div className="category-icon">
-              {category.icon && (
-                <img src={category.icon} alt="" />
-              )}
-            </div>
+          return (
+            <button
+              key={category.id}
+              type="button"
+              className={`category-item ${
+                isSelected ? 'selected' : ''
+              }`}
+              onClick={() => onCategoryChange(category)}
+            >
+              <span className="category-icon">
+                <img
+                  src={category.icon}
+                  alt=""
+                />
+              </span>
 
-            <span>{category.name}</span>
-          </button>
-        ))}
-
+              <span className="category-name">
+                {category.name}
+              </span>
+            </button>
+          )
+        })}
       </div>
 
+      <button
+        type="button"
+        className="category-arrow"
+      >
+        <img
+          src={arrowIcon}
+          alt=""
+        />
+      </button>
 
-    <button className="category-arrow">
-        <img src={arrowIcon} alt="" />
-    </button>
-
-
-      <button className="filters-button">
-        <img src={filterIcon} alt="" />
+      <button
+        type="button"
+        className="filters-button"
+      >
         <span>Фільтри</span>
-    </button>
 
+        <img
+          src={filterIcon}
+          alt=""
+        />
+      </button>
 
       <div className="tax-toggle">
-
         <span>
           Загальна сума до оподаткування
         </span>
 
-        <button className="toggle">
+        <button
+          type="button"
+          className="toggle"
+        >
           <span />
         </button>
-
       </div>
 
-    </div>
+    </nav>
   )
 }
 

@@ -132,7 +132,11 @@ function AccountButton() {
 }
 
 
-function Header({ onDatesChange }) {
+function Header({
+  onDatesChange,
+  selectedCategory,
+  onCategoryChange,
+}) {
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
@@ -190,6 +194,7 @@ const handleLogoClick = (e) => {
     top: 0,
     behavior: 'smooth',
   })
+
 }
 
   return (
@@ -227,7 +232,10 @@ const handleLogoClick = (e) => {
           <img src={mapIcon} alt="" />
         </button>
 
-        <CategoryNav />
+        <CategoryNav
+          selectedCategory={selectedCategory}
+          onCategoryChange={onCategoryChange}
+        />
 
       </header>
 
@@ -255,7 +263,10 @@ const handleLogoClick = (e) => {
 
           </div>
 
-          <CategoryNav />
+          <CategoryNav
+            selectedCategory={selectedCategory}
+            onCategoryChange={onCategoryChange}
+          />
 
         </header>
       )}
