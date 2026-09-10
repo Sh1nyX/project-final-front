@@ -1,0 +1,43 @@
+.continue-category {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 50px;
+  margin-bottom: 80px;
+
+  color: #211e1a;
+}
+
+.continue-category h2 {
+  margin: 0 0 5px;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 52px;
+
+  color: #6F6558;
+}
+
+.continue-category button {
+  width: 145px;
+  height: 41px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 16px;
+
+  background: #2c2823;
+  color: #ffffff;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 31px;
+
+  cursor: pointer;
+}

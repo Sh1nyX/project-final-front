@@ -125,11 +125,7 @@ function Header() {
 
   return (
     <>
-      {/* =========================
-          ОБЫЧНЫЙ HEADER
-      ========================= */}
-
-      <header className="header">
+      <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
 
         <div className="logo">
           HomeFU
@@ -157,11 +153,6 @@ function Header() {
         <CategoryNav />
 
       </header>
-
-
-      {/* =========================
-          КОМПАКТНЫЙ HEADER
-      ========================= */}
 
       {isScrolled && (
         <header className="compact-header">

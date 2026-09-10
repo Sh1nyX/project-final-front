@@ -300,14 +300,34 @@
   left: 0;
 
   width: 100%;
-  height: 120px;
+  height: 175px;
 
   z-index: 1000;
 
   background: #dddbd7;
 
-  animation: compactHeaderAppear 0.25s ease-out;
+  opacity: 1;
+  overflow: visible;
+
+  animation: compactHeaderAppear 0.3s ease-out;
 }
+
+.compact-header::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 175px;
+
+  background: #dddbd7;
+
+  z-index: -1;
+}
+
 
 
 /* ========================================
@@ -467,4 +487,12 @@
   top: 55px;
 
   width: 100%;
+
+  margin-top: 37px;
+
+  z-index: 2;
+}
+
+.header-scrolled > .category-nav {
+  visibility: hidden;
 }

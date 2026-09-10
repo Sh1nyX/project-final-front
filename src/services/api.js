@@ -5,7 +5,7 @@ const api = axios.create({
 })
 
 export const getListings = async () => {
-  const response = await api.get('/listings')
+  const response = await api.get('/listings?limit=18&page=1')
   return response.data
 }
 

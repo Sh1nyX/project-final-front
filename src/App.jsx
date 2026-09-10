@@ -4,6 +4,8 @@ import Header from './components/Header/Header'
 import ListingGrid from './components/ListingGrid/ListingGrid'
 
 import { getListings } from './services/api'
+import ContinueCategory from './components/ContinueCategory/ContinueCategory'
+import Footer from './components/Footer/Footer'
 
 function App() {
   const [listings, setListings] = useState([])
@@ -42,10 +44,18 @@ function App() {
         )}
 
         {!loading && !error && (
-          <ListingGrid listings={listings} />
+          <>
+            <ListingGrid listings={listings} />
+
+            <ContinueCategory />
+          </>
         )}
 
+        
+
       </main>
+
+      <Footer />
     </>
   )
 }
