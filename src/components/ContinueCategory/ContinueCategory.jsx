@@ -1,6 +1,10 @@
 import './ContinueCategory.css'
 
-function ContinueCategory() {
+function ContinueCategory({ onShowMore, hasMore }) {
+  if (!hasMore) {
+    return null
+  }
+
   return (
     <section className="continue-category">
 
@@ -8,7 +12,7 @@ function ContinueCategory() {
         Продовжити огляд категорії “Біля моря”
       </h2>
 
-      <button>
+      <button onClick={onShowMore}>
         Показати більше
       </button>
 

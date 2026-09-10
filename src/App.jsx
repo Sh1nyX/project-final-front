@@ -2,36 +2,77 @@ import { useEffect, useState } from 'react'
 
 import Header from './components/Header/Header'
 import ListingGrid from './components/ListingGrid/ListingGrid'
-
-import { getListings } from './services/api'
 import ContinueCategory from './components/ContinueCategory/ContinueCategory'
 import Footer from './components/Footer/Footer'
 
+import { getListings } from './services/api'
+
+
 function App() {
+
   const [listings, setListings] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const loadListings = async () => {
-      try {
-        const data = await getListings()
+  const [visibleCount, setVisibleCount] = useState(18)
 
-        setListings(data)
-      } catch (error) {
-        console.error(error)
-        setError('Не вдалося завантажити оголошення')
-      } finally {
-        setLoading(false)
-      }
+  const [searchDates, setSearchDates] = useState({
+  check_in: '',
+  check_out: '',
+  flexible_days: 0,
+})
+
+
+ useEffect(() => {
+
+  const loadListings = async () => {
+
+    setLoading(true)
+
+    try {
+
+      const data = await getListings({
+        check_in: searchDates.check_in,
+        check_out: searchDates.check_out,
+        flexible_days: searchDates.flexible_days,
+        limit: 100,
+        page: 1,
+      })
+
+      console.log('SEARCH DATES:', searchDates)
+      console.log('RESULTS:', data)
+
+      setListings(data)
+
+    } catch (error) {
+
+      console.error(error)
+      setError('Не вдалося завантажити оголошення')
+
+    } finally {
+
+      setLoading(false)
+
     }
 
-    loadListings()
-  }, [])
+  }
+
+  loadListings()
+
+}, [searchDates])
+
+
+  const handleShowMore = () => {
+    setVisibleCount(listings.length)
+  }
+
+
+  const hasMoreListings = visibleCount < listings.length
+
 
   return (
     <>
-      <Header />
+      <Header onDatesChange={setSearchDates} />
 
       <main>
 
@@ -45,13 +86,17 @@ function App() {
 
         {!loading && !error && (
           <>
-            <ListingGrid listings={listings} />
+            <ListingGrid
+              listings={listings}
+              visibleCount={visibleCount}
+            />
 
-            <ContinueCategory />
+            <ContinueCategory
+              onShowMore={handleShowMore}
+              hasMore={hasMoreListings}
+            />
           </>
         )}
-
-        
 
       </main>
 

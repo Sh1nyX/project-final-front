@@ -1,6 +1,7 @@
 import './ListingCard.css'
 
 function ListingCard({ listing }) {
+  console.log('LISTING:', listing)
   const image = listing.images?.[0]
 
   return (
@@ -26,34 +27,28 @@ function ListingCard({ listing }) {
       <div className="listing-info">
 
         <div className="listing-location-row">
-          <h3>
-            {listing.location_city}, {listing.location_country}
-          </h3>
+  <h3>
+    {listing.location_city}, {listing.location_country}
+  </h3>
 
-          <span className="listing-rating">
-            ★ {Number(listing.rating || 0).toFixed(2)}
-          </span>
-        </div>
+        <span className="listing-rating">
+          ★ {Number(listing.rating || 0).toFixed(2)}
+        </span>
+      </div>
 
+      <div className="listing-details">
+        {listing.category_name && (
+          <span>{listing.category_name}</span>
+        )}
 
-        <div className="listing-details">
-          {listing.bedrooms && (
-            <span>{listing.bedrooms} спальня</span>
-          )}
+        {listing.date_range && (
+          <span>{listing.date_range}</span>
+        )}
+      </div>
 
-          {listing.beds && (
-            <span>{listing.beds} ліжко</span>
-          )}
-
-          {listing.bathrooms && (
-            <span>{listing.bathrooms} ванна</span>
-          )}
-        </div>
-
-
-        <div className="listing-price">
-          ${listing.price_per_night} ніч
-        </div>
+      <div className="listing-price">
+        ${listing.price_per_night} ніч
+      </div>
 
       </div>
 

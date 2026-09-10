@@ -216,6 +216,37 @@
   white-space: nowrap;
 }
 
+.date-input-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  color: #8a8278;
+  cursor: pointer;
+  text-align: left;
+}
+
+.date-field-selected {
+  height: 61px;
+  box-sizing: border-box;
+  border-radius: 26px;
+  background: #6f6558;
+  color: #ffffff;
+  padding: 8px 18px;
+}
+
+.date-field-selected .field-title {
+  color: #ffffff;
+}
+
+.date-field-selected .date-input-button {
+  color: #ffffff;
+}
+
 
 /* =========================
    SEARCH BUTTON

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './Header.css'
 
 import CategoryNav from '../CategoryNav/CategoryNav'
+import DatePicker from '../DatePicker/DatePicker'
 
 import mapIcon from '../../assets/map-icon.svg'
 import searchIcon from '../../assets/search-icon.svg'
@@ -10,7 +11,16 @@ import profileIcon from '../../assets/profile-icon.svg'
 import separatorIcon from '../../assets/separator.svg'
 
 
-function SearchBar({ compact = false }) {
+function SearchBar({
+  compact = false,
+  checkIn,
+  checkOut,
+  onCheckInChange,
+  onCheckOutChange,
+  onSearch,
+  onDateClick,
+  activeDateField,
+}) {
   return (
     <div className={compact ? 'compact-search-row' : 'search-row'}>
 
@@ -34,16 +44,22 @@ function SearchBar({ compact = false }) {
           alt=""
         />
 
-        <div className="search-field">
+        <div
+          className={`search-field date-field ${
+            activeDateField === 'checkin' ? 'date-field-selected' : ''
+          }`}
+        >
           <span className="field-title">
-            {compact ? 'Будь-який тиждень' : 'Прибуття'}
+            Прибуття
           </span>
 
-          {!compact && (
-            <span className="field-placeholder">
-              Додайте дати
-            </span>
-          )}
+          <button
+            type="button"
+            className="date-input-button"
+            onClick={() => onDateClick('checkin')}
+          >
+            {checkIn || 'Додайте дати'}
+          </button>
         </div>
 
         {!compact && (
@@ -54,14 +70,22 @@ function SearchBar({ compact = false }) {
               alt=""
             />
 
-            <div className="search-field">
+            <div
+              className={`search-field date-field ${
+                activeDateField === 'checkout' ? 'date-field-selected' : ''
+              }`}
+            >
               <span className="field-title">
                 Виїзд
               </span>
 
-              <span className="field-placeholder">
-                Додайте дати
-              </span>
+              <button
+                type="button"
+                className="date-input-button"
+                onClick={() => onDateClick('checkout')}
+              >
+                {checkOut || 'Додайте дати'}
+              </button>
             </div>
           </>
         )}
@@ -84,7 +108,10 @@ function SearchBar({ compact = false }) {
           )}
         </div>
 
-        <button className="search-button">
+        <button
+          className="search-button"
+          onClick={onSearch}
+        >
           <img src={searchIcon} alt="" />
         </button>
 
@@ -105,9 +132,25 @@ function AccountButton() {
 }
 
 
-function Header() {
+function Header({ onDatesChange }) {
 
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+  
+  const [checkIn, setCheckIn] = useState('')
+  const [checkOut, setCheckOut] = useState('')
+  const [flexibleDays, setFlexibleDays] = useState(0)
+  const [activeDateField, setActiveDateField] = useState(null)
+
+  const openDatePicker = (field) => {
+  setActiveDateField(field)
+  setIsDatePickerOpen(true)
+}
+
+  const closeDatePicker = () => {
+  setIsDatePickerOpen(false)
+  setActiveDateField(null)
+}
 
   useEffect(() => {
   const handleScroll = () => {
@@ -122,14 +165,40 @@ function Header() {
   }
 }, [])
 
+const handleSearch = () => {
+  onDatesChange({
+    check_in: checkIn,
+    check_out: checkOut,
+    flexible_days: flexibleDays,
+  })
+}
+
+const handleLogoClick = (e) => {
+  e.preventDefault()
+
+  setCheckIn('')
+  setCheckOut('')
+  setFlexibleDays(0)
+
+  onDatesChange({
+    check_in: '',
+    check_out: '',
+    flexible_days: 0,
+  })
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
 
   return (
     <>
       <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
 
-        <div className="logo">
+        <a href="/" className="logo" onClick={handleLogoClick}>
           HomeFU
-        </div>
+        </a>
 
         <nav className="header-nav">
           <a href="#">Варіанти помешкань</a>
@@ -143,7 +212,15 @@ function Header() {
 
         <AccountButton />
 
-        <SearchBar />
+        <SearchBar
+          checkIn={checkIn}
+          checkOut={checkOut}
+          onCheckInChange={setCheckIn}
+          onCheckOutChange={setCheckOut}
+          onSearch={handleSearch}
+          onDateClick={openDatePicker}
+          activeDateField={activeDateField}
+        />
 
         <button className="map-button">
           <span>Показати мапу</span>
@@ -163,7 +240,16 @@ function Header() {
               HomeFU
             </div>
 
-            <SearchBar compact />
+            <SearchBar
+              compact
+              checkIn={checkIn}
+              checkOut={checkOut}
+              onCheckInChange={setCheckIn}
+              onCheckOutChange={setCheckOut}
+              onSearch={handleSearch}
+              onDateClick={openDatePicker}
+              activeDateField={activeDateField}
+            />
 
             <AccountButton />
 
@@ -172,6 +258,18 @@ function Header() {
           <CategoryNav />
 
         </header>
+      )}
+
+      {isDatePickerOpen && (
+        <DatePicker
+          checkIn={checkIn}
+          checkOut={checkOut}
+          flexibleDays={flexibleDays}
+          onFlexibleDaysChange={setFlexibleDays}
+          onCheckInChange={setCheckIn}
+          onCheckOutChange={setCheckOut}
+          onClose={closeDatePicker}
+        />
       )}
 
     </>

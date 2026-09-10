@@ -4,8 +4,23 @@ const api = axios.create({
   baseURL: 'http://localhost:5000/api',
 })
 
-export const getListings = async () => {
-  const response = await api.get('/listings?limit=18&page=1')
+export const getListings = async ({
+  check_in = '',
+  check_out = '',
+  flexible_days = 0,
+  limit = 100,
+  page = 1,
+} = {}) => {
+  const response = await api.get('/listings', {
+    params: {
+      check_in,
+      check_out,
+      flexible_days,
+      limit,
+      page,
+    },
+  })
+
   return response.data
 }
 
