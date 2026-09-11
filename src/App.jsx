@@ -21,6 +21,7 @@ function App() {
     check_out: '',
     flexible_days: 0,
     category_id: 1,
+    guests: 0,
   })
 
   const [selectedCategory, setSelectedCategory] = useState({
@@ -53,6 +54,7 @@ function App() {
         category_id: searchDates.category_id,
         limit: 100,
         page: 1,
+        guests: searchDates.guests,
       })
 
       

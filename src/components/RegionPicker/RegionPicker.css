@@ -1,0 +1,71 @@
+.region-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.region-picker {
+  position: absolute;
+  left: 525px;
+  top: 215px;
+  width: 478px;
+  height: 501px;
+  box-sizing: border-box;
+  padding: 28px 37px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 26px;
+}
+
+.region-picker-title {
+  margin: 0;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #211e1a;
+}
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 121px);
+  column-gap: 17px;
+  row-gap: 54px;
+  margin-top: 19px;
+}
+
+.region-card {
+  width: 121px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Inknut Antiqua', serif;
+  text-align: left;
+  cursor: pointer;
+  display: block;
+}
+
+.region-card-image {
+  display: block;
+  width: 121px;
+  height: 124px;
+  object-fit: fill;
+  border-radius: 16px;
+}
+
+.region-card-name {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 31px;
+  color: #8a8278;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.region-card.selected .region-card-name {
+  color: #211e1a;
+}

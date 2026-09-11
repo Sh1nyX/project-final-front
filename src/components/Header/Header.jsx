@@ -3,6 +3,8 @@ import './Header.css'
 
 import CategoryNav from '../CategoryNav/CategoryNav'
 import DatePicker from '../DatePicker/DatePicker'
+import RegionPicker from '../RegionPicker/RegionPicker'
+import GuestPicker from '../GuestPicker/GuestPicker'
 
 import mapIcon from '../../assets/map-icon.svg'
 import searchIcon from '../../assets/search-icon.svg'
@@ -20,20 +22,31 @@ function SearchBar({
   onSearch,
   onDateClick,
   activeDateField,
+  onDestinationClick,
+  isRegionPickerOpen,
+  selectedRegion,
+  onGuestsClick,
+  guestCount,
+  isGuestPickerOpen,
 }) {
   return (
     <div className={compact ? 'compact-search-row' : 'search-row'}>
 
       <div className={compact ? 'compact-search-bar' : 'search-bar'}>
 
-        <div className="search-field destination">
+        <div
+          className={`search-field destination ${
+            isRegionPickerOpen ? 'destination-selected' : ''
+          }`}
+          onClick={onDestinationClick}
+        >
           <span className="field-title">
             {compact ? 'Будь-куди' : 'Куди'}
           </span>
 
           {!compact && (
             <span className="field-placeholder">
-              Пошук напрямку
+              {selectedRegion?.name || 'Пошук напрямку'}
             </span>
           )}
         </div>
@@ -96,16 +109,21 @@ function SearchBar({
           alt=""
         />
 
-        <div className="search-field guests">
+        <div
+          className={`search-field guests ${
+            isGuestPickerOpen ? 'guests-selected' : ''
+          }`}
+          onClick={onGuestsClick}
+        >
           <span className="field-title">
             {compact ? 'Додайте гостей' : 'Хто'}
           </span>
 
-          {!compact && (
-            <span className="field-placeholder">
-              Додайте гостей
-            </span>
-          )}
+          <span className="field-placeholder">
+            {guestCount > 0
+              ? `${guestCount} ${guestCount === 1 ? 'гість' : 'гостей'}`
+              : 'Додайте гостей'}
+          </span>
         </div>
 
         <button
@@ -140,6 +158,15 @@ function Header({
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+
+  const [isRegionPickerOpen, setIsRegionPickerOpen] = useState(false)
+  const [selectedRegion, setSelectedRegion] = useState(null)
+
+  const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
+  const [adults, setAdults] = useState(0)
+  const [children, setChildren] = useState(0)
+  const [infants, setInfants] = useState(0)
+  const [pets, setPets] = useState(0)
   
   const [checkIn, setCheckIn] = useState('')
   const [checkOut, setCheckOut] = useState('')
@@ -169,11 +196,14 @@ function Header({
   }
 }, [])
 
+const totalGuests = adults + children
+
 const handleSearch = () => {
   onDatesChange({
     check_in: checkIn,
     check_out: checkOut,
     flexible_days: flexibleDays,
+    guests: totalGuests,
   })
 }
 
@@ -195,6 +225,22 @@ const handleLogoClick = (e) => {
     behavior: 'smooth',
   })
 
+}
+
+const openRegionPicker = () => {
+  setIsRegionPickerOpen(true)
+}
+
+const closeRegionPicker = () => {
+  setIsRegionPickerOpen(false)
+}
+
+const openGuestPicker = () => {
+  setIsGuestPickerOpen(true)
+}
+
+const closeGuestPicker = () => {
+  setIsGuestPickerOpen(false)
 }
 
   return (
@@ -225,6 +271,12 @@ const handleLogoClick = (e) => {
           onSearch={handleSearch}
           onDateClick={openDatePicker}
           activeDateField={activeDateField}
+          onDestinationClick={openRegionPicker}
+          isRegionPickerOpen={isRegionPickerOpen}
+          selectedRegion={selectedRegion}
+          onGuestsClick={openGuestPicker}
+          guestCount={totalGuests}
+          isGuestPickerOpen={isGuestPickerOpen}
         />
 
         <button className="map-button">
@@ -257,6 +309,12 @@ const handleLogoClick = (e) => {
               onSearch={handleSearch}
               onDateClick={openDatePicker}
               activeDateField={activeDateField}
+              onDestinationClick={openRegionPicker}
+              isRegionPickerOpen={isRegionPickerOpen}
+              selectedRegion={selectedRegion}
+              onGuestsClick={openGuestPicker}
+              guestCount={totalGuests}
+              isGuestPickerOpen={isGuestPickerOpen}
             />
 
             <AccountButton />
@@ -280,6 +338,28 @@ const handleLogoClick = (e) => {
           onCheckInChange={setCheckIn}
           onCheckOutChange={setCheckOut}
           onClose={closeDatePicker}
+        />
+      )}
+
+      {isRegionPickerOpen && (
+        <RegionPicker
+          selectedRegion={selectedRegion}
+          onRegionChange={setSelectedRegion}
+          onClose={closeRegionPicker}
+        />
+      )}
+
+      {isGuestPickerOpen && (
+        <GuestPicker
+          adults={adults}
+          children={children}
+          infants={infants}
+          pets={pets}
+          onAdultsChange={setAdults}
+          onChildrenChange={setChildren}
+          onInfantsChange={setInfants}
+          onPetsChange={setPets}
+          onClose={closeGuestPicker}
         />
       )}
 

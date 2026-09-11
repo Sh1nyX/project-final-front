@@ -9,6 +9,7 @@ export const getListings = async ({
   check_out = '',
   flexible_days = 0,
   category_id = '',
+  guests = 0,
   limit = 100,
   page = 1,
 } = {}) => {
@@ -18,6 +19,7 @@ export const getListings = async ({
       check_out,
       flexible_days,
       category_id,
+      guests,
       limit,
       page,
     },

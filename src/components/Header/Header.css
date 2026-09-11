@@ -527,3 +527,102 @@
 .header-scrolled > .category-nav {
   visibility: hidden;
 }
+
+/* ========================================
+   REGION PICKER
+   ======================================== */
+
+   .destination {
+  cursor: pointer;
+}
+
+.destination-selected {
+  position: relative;
+  height: 61px;
+  box-sizing: border-box;
+  padding: 0 18px;
+  z-index: 1;
+}
+
+.destination-selected::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 0;
+  width: calc(100% + 32px);
+  height: 61px;
+  border-radius: 26px;
+  background: #6f6558;
+  z-index: -1;
+}
+
+.destination-selected .field-title,
+.destination-selected .field-placeholder {
+  position: relative;
+  z-index: 1;
+}
+
+.destination-selected .field-title {
+  color: #ffffff;
+}
+
+.destination-selected .field-placeholder {
+  color: #ffffff;
+}
+
+.compact-search-bar .destination-selected {
+  height: 43px;
+}
+
+.compact-search-bar .destination-selected::before {
+  left: -18px;
+  width: calc(100% + 18px);
+  height: 43px;
+  border-radius: 22px;
+}
+
+.compact-search-bar .destination-selected .field-title {
+  color: #ffffff;
+}
+
+.compact-search-bar .destination-selected .field-placeholder {
+  color: #ffffff;
+}
+
+/* ========================================
+   Guest Picker
+   ======================================== */
+
+   .guests {
+  cursor: pointer;
+  border-radius: 26px;
+}
+
+.guests-selected {
+  height: 61px;
+  box-sizing: border-box;
+  padding: 8px 18px;
+  background: #6f6558;
+  border-radius: 26px;
+}
+
+.guests-selected .field-title,
+.guests-selected .field-placeholder {
+  color: #ffffff;
+}
+
+/* COMPACT */
+
+.compact-search-bar .guests {
+  border-radius: 22px;
+}
+
+.compact-search-bar .guests-selected {
+  background: #6f6558;
+  border-radius: 22px;
+}
+
+.compact-search-bar .guests-selected .field-title,
+.compact-search-bar .guests-selected .field-placeholder {
+  color: #ffffff;
+}

@@ -1,0 +1,78 @@
+.guest-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.guest-picker {
+  position: absolute;
+  left: 1000px;
+  top: 215px;
+  width: 360px;
+  box-sizing: border-box;
+  padding: 24px 28px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 26px;
+}
+
+.guest-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 62px;
+}
+
+.guest-row-info {
+  min-width: 0;
+}
+
+.guest-row-title {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #211e1a;
+}
+
+.guest-row-description {
+  margin-top: 2px;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+  color: #8a8278;
+}
+
+.guest-counter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guest-counter-button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #6f6558;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 18px;
+  line-height: 28px;
+  color: #2c2823;
+  cursor: pointer;
+}
+
+.guest-counter-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.guest-count {
+  min-width: 14px;
+  text-align: center;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  color: #211e1a;
+}
