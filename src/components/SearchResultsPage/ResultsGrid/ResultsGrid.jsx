@@ -61,6 +61,9 @@ function ResultsGrid() {
           amenities:
             searchParams.get('amenities') || '',
 
+          sort:
+            searchParams.get('sort') || 'recommended',
+
           limit: PAGE_SIZE,
           page: currentPage,
         })

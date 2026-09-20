@@ -21,7 +21,9 @@ export const getListings = async ({
   min_beds = '',
   amenities = '',
 
-  limit = 100,
+  sort = 'recommended',
+
+  limit = 12,
   page = 1,
 } = {}) => {
   const response = await api.get('/listings', {
@@ -41,6 +43,8 @@ export const getListings = async ({
       min_bedrooms,
       min_beds,
       amenities,
+
+      sort,
 
       limit,
       page,

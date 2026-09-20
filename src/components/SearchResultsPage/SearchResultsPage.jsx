@@ -11,6 +11,7 @@ import ResultsFilters from './ResultsFilters/ResultsFilters'
 import ResultsGrid from './ResultsGrid/ResultsGrid'
 import ResultsFooter from './ResultsFooter/ResultsFooter'
 import ResultsPagination from './ResultsPagination/ResultsPagination'
+import ResultsSort from './ResultsSort/ResultsSort'
 
 function SearchResultsPage() {
   const [searchParams] = useSearchParams()
@@ -60,10 +61,7 @@ function SearchResultsPage() {
 
           </div>
 
-          <div className="results-sort">
-            <span>Сортувати:</span>
-            <strong>Рекомендовані</strong>
-          </div>
+          <ResultsSort />
 
         </div>
 
