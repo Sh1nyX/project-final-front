@@ -9,6 +9,8 @@ function CategoryNav({
   onCategoryChange,
   isCollapsed,
   onToggleCollapse,
+  isTotalPrice,
+  onTotalPriceChange,
 }) {
   return (
     <nav className="category-nav">
@@ -78,7 +80,13 @@ function CategoryNav({
 
         <button
           type="button"
-          className="toggle"
+          className={`toggle ${
+            isTotalPrice ? 'active' : ''
+          }`}
+          onClick={() => {
+            console.log('TOGGLE CLICK', isTotalPrice)
+            onTotalPriceChange?.(!isTotalPrice)
+          }}
         >
           <span />
         </button>

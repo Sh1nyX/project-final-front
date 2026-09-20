@@ -234,28 +234,40 @@
 }
 
 .toggle {
-  width: 42px;
-  height: 23px;
-
-  padding: 2px;
-
+  position: relative;
+  width: 46px;
+  height: 26px;
+  padding: 0;
   border: none;
-  border-radius: 26px;
-
-  background: #6f6558;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
+  border-radius: 999px;
+  background: #c8c3bd;
   cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .toggle span {
-  width: 19px;
-  height: 19px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+
+  width: 20px;
+  height: 20px;
 
   border-radius: 50%;
+  background: #f7f4ef;
 
-  background: #ffffff;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
 }
+
+.toggle.active {
+  background: #403b35;
+}
+
+.toggle.active span {
+  transform: translateX(20px);
+} 

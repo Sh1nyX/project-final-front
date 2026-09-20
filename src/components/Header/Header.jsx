@@ -26,6 +26,9 @@ function AccountButton() {
 function Header({
   selectedCategory,
   onCategoryChange,
+  onDatesChange,
+  isTotalPrice,
+  onTotalPriceChange,
 }) {
   const navigate = useNavigate()
 
@@ -72,6 +75,23 @@ function Header({
   }, [])
 
   const totalGuests = adults + children
+
+  useEffect(() => {
+  onDatesChange?.({
+    check_in: checkIn,
+    check_out: checkOut,
+    flexible_days: flexibleDays,
+    category_id: selectedCategory?.id || 1,
+    guests: totalGuests,
+  })
+}, [
+  checkIn,
+  checkOut,
+  flexibleDays,
+  selectedCategory,
+  totalGuests,
+  onDatesChange,
+])
 
   const handleSearch = () => {
     const params = new URLSearchParams()
@@ -184,6 +204,8 @@ function Header({
           onToggleCollapse={() =>
             setIsCategoriesCollapsed((current) => !current)
           }
+          isTotalPrice={isTotalPrice}
+          onTotalPriceChange={onTotalPriceChange}
         />
 
       </header>
@@ -224,6 +246,8 @@ function Header({
             onToggleCollapse={() =>
               setIsCategoriesCollapsed((current) => !current)
             }
+            isTotalPrice={isTotalPrice}
+            onTotalPriceChange={onTotalPriceChange}
           />
 
         </header>

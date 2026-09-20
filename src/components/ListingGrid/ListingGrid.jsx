@@ -1,7 +1,12 @@
 import './ListingGrid.css'
 import ListingCard from '../ListingCard/ListingCard'
 
-function ListingGrid({ listings, visibleCount }) {
+function ListingGrid({
+  listings,
+  visibleCount,
+  isTotalPrice,
+  nights,
+}) {
   const visibleListings = listings.slice(0, visibleCount)
 
   return (
@@ -10,6 +15,8 @@ function ListingGrid({ listings, visibleCount }) {
         <ListingCard
           key={listing.id}
           listing={listing}
+          isTotalPrice={isTotalPrice}
+          nights={nights}
         />
       ))}
     </section>

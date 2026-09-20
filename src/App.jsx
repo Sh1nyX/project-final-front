@@ -9,6 +9,38 @@ import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage'
 
 import { getListings } from './services/api'
 
+function getNights(checkIn, checkOut) {
+  if (!checkIn || !checkOut) {
+    return 0
+  }
+
+  const [fromYear, fromMonth, fromDay] = checkIn
+    .split('-')
+    .map(Number)
+
+  const [toYear, toMonth, toDay] = checkOut
+    .split('-')
+    .map(Number)
+
+  const from = Date.UTC(
+    fromYear,
+    fromMonth - 1,
+    fromDay
+  )
+
+  const to = Date.UTC(
+    toYear,
+    toMonth - 1,
+    toDay
+  )
+
+  const difference = to - from
+
+  return Math.max(
+    0,
+    Math.round(difference / (1000 * 60 * 60 * 24))
+  )
+}
 
 function HomePage() {
 
@@ -17,6 +49,7 @@ function HomePage() {
   const [error, setError] = useState(null)
 
   const [visibleCount, setVisibleCount] = useState(18)
+  const [isTotalPrice, setIsTotalPrice] = useState(false)
 
   const [searchDates, setSearchDates] = useState({
     check_in: '',
@@ -25,6 +58,11 @@ function HomePage() {
     category_id: 1,
     guests: 0,
   })
+
+  const nights = getNights(
+  searchDates.check_in,
+  searchDates.check_out
+)
 
   const [selectedCategory, setSelectedCategory] = useState({
     id: 1,
@@ -84,6 +122,8 @@ function HomePage() {
         onDatesChange={setSearchDates}
         selectedCategory={selectedCategory}
         onCategoryChange={handleCategoryChange}
+        isTotalPrice={isTotalPrice}
+        onTotalPriceChange={setIsTotalPrice}
       />
 
       <main>
@@ -101,6 +141,8 @@ function HomePage() {
             <ListingGrid
               listings={listings}
               visibleCount={visibleCount}
+              isTotalPrice={isTotalPrice}
+              nights={nights}
             />
 
             <ContinueCategory
