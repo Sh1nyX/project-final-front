@@ -27,6 +27,14 @@
   font-weight: 600;
 
   color: #FFFFFF;
+  text-decoration: none;
+}
+
+.results-logo:visited,
+.results-logo:hover,
+.results-logo:active {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 .results-nav-links {

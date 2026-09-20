@@ -25,6 +25,13 @@
   line-height: 1;
 }
 
+.logo:visited,
+.logo:hover,
+.logo:active {
+  color: #211e1a;
+  text-decoration: none;
+}
+
 
 /* =========================
    TOP NAVIGATION

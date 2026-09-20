@@ -132,6 +132,7 @@ function Header({
     setCheckOut('')
     setFlexibleDays(0)
 
+    navigate('/')
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
