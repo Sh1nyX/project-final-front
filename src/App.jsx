@@ -59,7 +59,7 @@ function HomePage() {
         console.log('SEARCH DATES:', searchDates)
         console.log('RESULTS:', data)
 
-        setListings(data)
+        setListings(data.listings)
         setVisibleCount(18)
       } catch (error) {
         console.error(error)
