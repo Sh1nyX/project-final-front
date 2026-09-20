@@ -31,6 +31,7 @@ function Header({
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+  const [isCategoriesCollapsed, setIsCategoriesCollapsed] = useState(false)
 
   const [isRegionPickerOpen, setIsRegionPickerOpen] = useState(false)
   const [selectedRegion, setSelectedRegion] = useState(null)
@@ -179,6 +180,10 @@ function Header({
         <CategoryNav
           selectedCategory={selectedCategory}
           onCategoryChange={onCategoryChange}
+          isCollapsed={isCategoriesCollapsed}
+          onToggleCollapse={() =>
+            setIsCategoriesCollapsed((current) => !current)
+          }
         />
 
       </header>
@@ -215,6 +220,10 @@ function Header({
           <CategoryNav
             selectedCategory={selectedCategory}
             onCategoryChange={onCategoryChange}
+            isCollapsed={isCategoriesCollapsed}
+            onToggleCollapse={() =>
+              setIsCategoriesCollapsed((current) => !current)
+            }
           />
 
         </header>

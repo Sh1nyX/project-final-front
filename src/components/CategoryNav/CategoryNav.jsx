@@ -7,11 +7,17 @@ import arrowIcon from '../../assets/arrow-icon.svg'
 function CategoryNav({
   selectedCategory,
   onCategoryChange,
+  isCollapsed,
+  onToggleCollapse,
 }) {
   return (
     <nav className="category-nav">
 
-      <div className="category-list">
+      <div
+        className={`category-list ${
+          isCollapsed ? 'collapsed' : ''
+        }`}
+      >
         {categories.map((category) => {
           const isSelected =
             selectedCategory?.id === category.id
@@ -42,7 +48,10 @@ function CategoryNav({
 
       <button
         type="button"
-        className="category-arrow"
+        className={`category-arrow ${
+          isCollapsed ? 'collapsed' : ''
+        }`}
+        onClick={onToggleCollapse}
       >
         <img
           src={arrowIcon}
