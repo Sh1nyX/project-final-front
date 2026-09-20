@@ -1,17 +1,19 @@
 .results-grid {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 392px);
+
   gap: 24px;
 }
 
 .result-card {
+  height: 392px;
+  box-sizing: border-box;
   overflow: hidden;
 
   background: #F1EDE7;
-
   border: 1px solid #CFC7BD;
   border-radius: 16px;
 }
@@ -178,4 +180,19 @@
   font-size: 16px;
 
   color: #70685F;
+}
+
+.results-grid-wrapper {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: calc(392px * 2 + 24px);
+}
+
+.results-pagination {
+  margin-top: 40px;
+  flex-shrink: 0;
 }

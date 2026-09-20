@@ -4,13 +4,23 @@ import { useSearchParams } from 'react-router-dom'
 import './ResultsGrid.css'
 
 import { getListings } from '../../../services/api'
+import ResultsPagination from '../ResultsPagination/ResultsPagination'
+
+const PAGE_SIZE = 6
 
 function ResultsGrid() {
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const [listings, setListings] = useState([])
+  const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+
+  const currentPage =
+    Number(searchParams.get('page')) || 1
+
+  const totalPages =
+    Math.ceil(total / PAGE_SIZE)
 
   useEffect(() => {
     const loadListings = async () => {
@@ -51,11 +61,20 @@ function ResultsGrid() {
           amenities:
             searchParams.get('amenities') || '',
 
-          limit: 100,
-          page: 1,
+          limit: PAGE_SIZE,
+          page: currentPage,
         })
 
-        setListings(data)
+        const items = Array.isArray(data)
+        ? data
+        : data?.listings || []
+
+      const totalItems = Array.isArray(data)
+        ? data.length
+        : Number(data?.total) || 0
+
+      setListings(items)
+      setTotal(totalItems)
       } catch (err) {
         console.error(
           'Не удалось загрузить объявления:',
@@ -98,8 +117,9 @@ function ResultsGrid() {
   }
 
   return (
-    <div className="results-grid">
+  <div className="results-grid-wrapper">
 
+    <div className="results-grid">
       {listings.map((listing) => {
         const image = listing.images?.[0]
 
@@ -125,7 +145,6 @@ function ResultsGrid() {
             className="result-card"
             key={listing.id}
           >
-
             <div className="result-card-image-wrapper">
 
               {image ? (
@@ -153,7 +172,6 @@ function ResultsGrid() {
             <div className="result-card-content">
 
               <div className="result-card-location-row">
-
                 <span className="result-card-location">
                   {listing.location_city},{' '}
                   {listing.location_country}
@@ -162,7 +180,6 @@ function ResultsGrid() {
                 <span className="result-card-rating">
                   ★ {Number(listing.rating || 0).toFixed(2)}
                 </span>
-
               </div>
 
               <h3 className="result-card-title">
@@ -186,13 +203,29 @@ function ResultsGrid() {
               </p>
 
             </div>
-
           </article>
         )
       })}
-
     </div>
-  )
+
+    <ResultsPagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={(page) => {
+        const params = new URLSearchParams(searchParams)
+
+        if (page === 1) {
+          params.delete('page')
+        } else {
+          params.set('page', page)
+        }
+
+        setSearchParams(params)
+      }}
+    />
+
+  </div>
+)
 }
 
 export default ResultsGrid

@@ -10,6 +10,7 @@ import ResultsCategories from './ResultsCategories/ResultsCategories'
 import ResultsFilters from './ResultsFilters/ResultsFilters'
 import ResultsGrid from './ResultsGrid/ResultsGrid'
 import ResultsFooter from './ResultsFooter/ResultsFooter'
+import ResultsPagination from './ResultsPagination/ResultsPagination'
 
 function SearchResultsPage() {
   const [searchParams] = useSearchParams()
