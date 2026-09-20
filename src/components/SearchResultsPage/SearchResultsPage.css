@@ -1,0 +1,78 @@
+.search-results-page {
+  width: 100%;
+  min-height: 2200px;
+  background: #E7E3DD;
+  color: #211E1A;
+}
+
+.search-results-content {
+  width: 100%;
+  padding: 48px 80px;
+  box-sizing: border-box;
+}
+
+.results-title-row {
+  width: 100%;
+  min-height: 120px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.results-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.results-overtitle {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  color: #70685F;
+}
+
+.results-title {
+  margin: 0;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 36px;
+  line-height: 93px;
+  font-weight: 600;
+
+  color: #211E1A;
+}
+
+.results-sort {
+  width: 256px;
+  height: 47px;
+  padding: 14px 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  border: 1px solid #A79E93;
+  border-radius: 28px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  color: #70685F;
+}
+
+.results-sort strong {
+  color: #211E1A;
+  font-weight: 700;
+}
+
+.results-catalog {
+  margin-top: 32px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+}

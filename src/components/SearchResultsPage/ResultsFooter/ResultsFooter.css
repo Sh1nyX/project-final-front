@@ -1,0 +1,32 @@
+.results-footer {
+  width: 100%;
+  min-height: 343px;
+  padding: 56px 80px;
+  box-sizing: border-box;
+
+  background: #403B35;
+  color: #FFFFFF;
+}
+
+.results-footer-logo {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 32px;
+  line-height: 83px;
+  font-weight: 600;
+}
+
+.results-footer-links {
+  margin-top: 48px;
+
+  display: flex;
+  gap: 32px;
+}
+
+.results-footer-links a {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #FFFFFF;
+  text-decoration: none;
+}

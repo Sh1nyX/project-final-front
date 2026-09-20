@@ -1,143 +1,16 @@
 import { useEffect, useState } from 'react'
 import './Header.css'
+import { useNavigate } from 'react-router-dom'
 
 import CategoryNav from '../CategoryNav/CategoryNav'
 import DatePicker from '../DatePicker/DatePicker'
 import RegionPicker from '../RegionPicker/RegionPicker'
 import GuestPicker from '../GuestPicker/GuestPicker'
+import SearchBar from '../SearchBar/SearchBar'
 
 import mapIcon from '../../assets/map-icon.svg'
-import searchIcon from '../../assets/search-icon.svg'
 import menuIcon from '../../assets/menu-icon.svg'
 import profileIcon from '../../assets/profile-icon.svg'
-import separatorIcon from '../../assets/separator.svg'
-
-
-function SearchBar({
-  compact = false,
-  checkIn,
-  checkOut,
-  onCheckInChange,
-  onCheckOutChange,
-  onSearch,
-  onDateClick,
-  activeDateField,
-  onDestinationClick,
-  isRegionPickerOpen,
-  selectedRegion,
-  onGuestsClick,
-  guestCount,
-  isGuestPickerOpen,
-}) {
-  return (
-    <div className={compact ? 'compact-search-row' : 'search-row'}>
-
-      <div className={compact ? 'compact-search-bar' : 'search-bar'}>
-
-        <div
-          className={`search-field destination ${
-            isRegionPickerOpen ? 'destination-selected' : ''
-          }`}
-          onClick={onDestinationClick}
-        >
-          <span className="field-title">
-            {compact ? 'Будь-куди' : 'Куди'}
-          </span>
-
-          {!compact && (
-            <span className="field-placeholder">
-              {selectedRegion?.name || 'Пошук напрямку'}
-            </span>
-          )}
-        </div>
-
-        <img
-          className="search-separator"
-          src={separatorIcon}
-          alt=""
-        />
-
-        <div
-          className={`search-field date-field ${
-            activeDateField === 'checkin' ? 'date-field-selected' : ''
-          }`}
-        >
-          <span className="field-title">
-            Прибуття
-          </span>
-
-          <button
-            type="button"
-            className="date-input-button"
-            onClick={() => onDateClick('checkin')}
-          >
-            {checkIn || 'Додайте дати'}
-          </button>
-        </div>
-
-        {!compact && (
-          <>
-            <img
-              className="search-separator"
-              src={separatorIcon}
-              alt=""
-            />
-
-            <div
-              className={`search-field date-field ${
-                activeDateField === 'checkout' ? 'date-field-selected' : ''
-              }`}
-            >
-              <span className="field-title">
-                Виїзд
-              </span>
-
-              <button
-                type="button"
-                className="date-input-button"
-                onClick={() => onDateClick('checkout')}
-              >
-                {checkOut || 'Додайте дати'}
-              </button>
-            </div>
-          </>
-        )}
-
-        <img
-          className="search-separator"
-          src={separatorIcon}
-          alt=""
-        />
-
-        <div
-          className={`search-field guests ${
-            isGuestPickerOpen ? 'guests-selected' : ''
-          }`}
-          onClick={onGuestsClick}
-        >
-          <span className="field-title">
-            {compact ? 'Додайте гостей' : 'Хто'}
-          </span>
-
-          <span className="field-placeholder">
-            {guestCount > 0
-              ? `${guestCount} ${guestCount === 1 ? 'гість' : 'гостей'}`
-              : 'Додайте гостей'}
-          </span>
-        </div>
-
-        <button
-          className="search-button"
-          onClick={onSearch}
-        >
-          <img src={searchIcon} alt="" />
-        </button>
-
-      </div>
-
-    </div>
-  )
-}
 
 
 function AccountButton() {
@@ -151,10 +24,10 @@ function AccountButton() {
 
 
 function Header({
-  onDatesChange,
   selectedCategory,
   onCategoryChange,
 }) {
+  const navigate = useNavigate()
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
@@ -163,91 +36,112 @@ function Header({
   const [selectedRegion, setSelectedRegion] = useState(null)
 
   const [isGuestPickerOpen, setIsGuestPickerOpen] = useState(false)
+
   const [adults, setAdults] = useState(0)
   const [children, setChildren] = useState(0)
   const [infants, setInfants] = useState(0)
   const [pets, setPets] = useState(0)
-  
+
   const [checkIn, setCheckIn] = useState('')
   const [checkOut, setCheckOut] = useState('')
   const [flexibleDays, setFlexibleDays] = useState(0)
+
   const [activeDateField, setActiveDateField] = useState(null)
 
   const openDatePicker = (field) => {
-  setActiveDateField(field)
-  setIsDatePickerOpen(true)
-}
+    setActiveDateField(field)
+    setIsDatePickerOpen(true)
+  }
 
   const closeDatePicker = () => {
-  setIsDatePickerOpen(false)
-  setActiveDateField(null)
-}
+    setIsDatePickerOpen(false)
+    setActiveDateField(null)
+  }
 
   useEffect(() => {
-  const handleScroll = () => {
-    console.log('SCROLL:', window.scrollY)
-    setIsScrolled(window.scrollY > 100)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const totalGuests = adults + children
+
+  const handleSearch = () => {
+    const params = new URLSearchParams()
+
+    if (selectedRegion?.id && selectedRegion.id !== 'all') {
+      params.set('region', selectedRegion.id)
+    } else {
+      params.delete('region')
+    }
+
+    if (checkIn) {
+      params.set('check_in', checkIn)
+    }
+
+    if (checkOut) {
+      params.set('check_out', checkOut)
+    }
+
+    if (flexibleDays > 0) {
+      params.set('flexible_days', flexibleDays)
+    }
+
+    if (totalGuests > 0) {
+      params.set('guests', totalGuests)
+    }
+
+    if (selectedCategory?.id) {
+      params.set('category_id', selectedCategory.id)
+    }
+
+    navigate(`/search?${params.toString()}`)
   }
 
-  window.addEventListener('scroll', handleScroll)
+  const handleLogoClick = (e) => {
+    e.preventDefault()
 
-  return () => {
-    window.removeEventListener('scroll', handleScroll)
+    setCheckIn('')
+    setCheckOut('')
+    setFlexibleDays(0)
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
   }
-}, [])
 
-const totalGuests = adults + children
+  const openRegionPicker = () => {
+    setIsRegionPickerOpen(true)
+  }
 
-const handleSearch = () => {
-  onDatesChange({
-    check_in: checkIn,
-    check_out: checkOut,
-    flexible_days: flexibleDays,
-    guests: totalGuests,
-  })
-}
+  const closeRegionPicker = () => {
+    setIsRegionPickerOpen(false)
+  }
 
-const handleLogoClick = (e) => {
-  e.preventDefault()
+  const openGuestPicker = () => {
+    setIsGuestPickerOpen(true)
+  }
 
-  setCheckIn('')
-  setCheckOut('')
-  setFlexibleDays(0)
-
-  onDatesChange({
-    check_in: '',
-    check_out: '',
-    flexible_days: 0,
-  })
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  })
-
-}
-
-const openRegionPicker = () => {
-  setIsRegionPickerOpen(true)
-}
-
-const closeRegionPicker = () => {
-  setIsRegionPickerOpen(false)
-}
-
-const openGuestPicker = () => {
-  setIsGuestPickerOpen(true)
-}
-
-const closeGuestPicker = () => {
-  setIsGuestPickerOpen(false)
-}
+  const closeGuestPicker = () => {
+    setIsGuestPickerOpen(false)
+  }
 
   return (
     <>
       <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
 
-        <a href="/" className="logo" onClick={handleLogoClick}>
+        <a
+          href="/"
+          className="logo"
+          onClick={handleLogoClick}
+        >
           HomeFU
         </a>
 
@@ -266,8 +160,6 @@ const closeGuestPicker = () => {
         <SearchBar
           checkIn={checkIn}
           checkOut={checkOut}
-          onCheckInChange={setCheckIn}
-          onCheckOutChange={setCheckOut}
           onSearch={handleSearch}
           onDateClick={openDatePicker}
           activeDateField={activeDateField}
@@ -291,6 +183,7 @@ const closeGuestPicker = () => {
 
       </header>
 
+
       {isScrolled && (
         <header className="compact-header">
 
@@ -304,8 +197,6 @@ const closeGuestPicker = () => {
               compact
               checkIn={checkIn}
               checkOut={checkOut}
-              onCheckInChange={setCheckIn}
-              onCheckOutChange={setCheckOut}
               onSearch={handleSearch}
               onDateClick={openDatePicker}
               activeDateField={activeDateField}
@@ -329,6 +220,7 @@ const closeGuestPicker = () => {
         </header>
       )}
 
+
       {isDatePickerOpen && (
         <DatePicker
           checkIn={checkIn}
@@ -341,6 +233,7 @@ const closeGuestPicker = () => {
         />
       )}
 
+
       {isRegionPickerOpen && (
         <RegionPicker
           selectedRegion={selectedRegion}
@@ -348,6 +241,7 @@ const closeGuestPicker = () => {
           onClose={closeRegionPicker}
         />
       )}
+
 
       {isGuestPickerOpen && (
         <GuestPicker

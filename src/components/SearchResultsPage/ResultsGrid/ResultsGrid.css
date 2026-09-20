@@ -1,0 +1,181 @@
+.results-grid {
+  flex: 1;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.result-card {
+  overflow: hidden;
+
+  background: #F1EDE7;
+
+  border: 1px solid #CFC7BD;
+  border-radius: 16px;
+}
+
+.result-card-image-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 250px;
+
+  overflow: hidden;
+}
+
+.result-card-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.result-card-no-image {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #D8D1C9;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+
+  color: #70685F;
+}
+
+.result-card-favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 36px;
+  height: 36px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.result-card-content {
+  padding: 16px;
+}
+
+
+/* LOCATION + RATING */
+
+.result-card-location-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.result-card-location {
+  margin: 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 400;
+
+  color: #211E1A;
+}
+
+.result-card-rating {
+  flex-shrink: 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 400;
+
+  color: #211E1A;
+}
+
+
+/* TITLE */
+
+.result-card-title {
+  margin: 10px 0 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+
+  color: #211E1A;
+}
+
+
+/* BEDROOMS + BEDS */
+
+.result-card-details {
+  margin: 6px 0 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 400;
+
+  color: #70685F;
+}
+
+
+/* PRICE */
+
+.result-card-price {
+  margin: 10px 0 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #211E1A;
+}
+
+.result-card-price strong {
+  font-weight: 700;
+}
+
+
+/* =========================
+   EMPTY / LOADING
+========================= */
+
+.results-grid-status {
+  flex: 1;
+  min-height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+
+  color: #70685F;
+}

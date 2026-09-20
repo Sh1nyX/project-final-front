@@ -88,6 +88,19 @@ function DatePicker({
 
   const selectedDate = toDateString(date)
 
+  if (selectedDate === checkIn) {
+    onCheckInChange('')
+    onCheckOutChange('')
+    setSelecting('checkin')
+    return
+  }
+
+  if (selectedDate === checkOut) {
+    onCheckOutChange('')
+    setSelecting('checkout')
+    return
+  }
+
   if (!checkIn) {
     onCheckInChange(selectedDate)
     onCheckOutChange('')
@@ -143,6 +156,8 @@ function DatePicker({
     )
   }
 
+  
+
   const goNextMonth = () => {
     setCurrentMonth(
       new Date(
@@ -197,7 +212,7 @@ function DatePicker({
                 (
                   selecting === 'checkout' &&
                   checkIn &&
-                  toDateString(date) <= checkIn
+                  toDateString(date) < checkIn
                 )
               }
               onClick={() => handleDayClick(date)}

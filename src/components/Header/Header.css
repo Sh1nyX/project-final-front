@@ -15,7 +15,6 @@
 
 .logo {
   position: absolute;
-
   left: 4.1%;
   top: 61px;
 
@@ -33,7 +32,6 @@
 
 .header-nav {
   position: absolute;
-
   left: 39.2%;
   top: 75px;
 
@@ -46,7 +44,6 @@
 
 .header-nav a {
   color: #211e1a;
-
   text-decoration: none;
 
   font-size: 12px;
@@ -63,7 +60,6 @@
 
 .host-link {
   position: absolute;
-
   left: 73.8%;
   top: 75px;
 
@@ -77,7 +73,6 @@
   line-height: 31px;
 
   white-space: nowrap;
-
   text-decoration: underline;
 }
 
@@ -88,7 +83,6 @@
 
 .account-button {
   position: absolute;
-
   left: 90.5%;
   top: 77px;
 
@@ -105,7 +99,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 8px;
 
   cursor: pointer;
@@ -119,162 +112,6 @@
 .account-button img:last-child {
   width: 24px;
   height: 24px;
-}
-
-
-/* =========================
-   SEARCH ROW
-========================= */
-
-.search-row {
-  position: absolute;
-
-  left: 0;
-  top: 145px;
-
-  width: 100%;
-  height: 63px;
-
-  margin: 0;
-  padding: 0;
-}
-
-
-/* =========================
-   SEARCH BAR
-========================= */
-
-.search-bar {
-  position: absolute;
-
-  left: 27.5%;
-  top: 0;
-
-  width: 44%;
-  height: 63px;
-
-  box-sizing: border-box;
-
-  border: 1px solid #2c2823;
-  border-radius: 26px;
-
-  display: flex;
-  align-items: center;
-
-  padding: 0 12px 0 32px;
-}
-
-
-/* =========================
-   SEARCH FIELDS
-========================= */
-
-.search-field {
-  height: 36px;
-
-  padding: 0 18px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  min-width: 0;
-}
-
-.search-field.destination {
-  width: 300px;
-  padding-left: 0;
-}
-
-
-.search-field:not(.destination) {
-  width: 131px;
-}
-
-
-.search-separator {
-  width: 1px;
-  height: 36.5px;
-  flex-shrink: 0;
-}
-
-.field-title {
-  font-size: 12px;
-  font-weight: 500;
-
-  line-height: 15px;
-}
-
-.field-placeholder {
-  color: #8a8278;
-
-  font-size: 12px;
-  font-weight: 500;
-
-  line-height: 15px;
-
-  white-space: nowrap;
-}
-
-.date-input-button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-  font-family: 'Inknut Antiqua', serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 15px;
-  color: #8a8278;
-  cursor: pointer;
-  text-align: left;
-}
-
-.date-field-selected {
-  height: 61px;
-  box-sizing: border-box;
-  border-radius: 26px;
-  background: #6f6558;
-  color: #ffffff;
-  padding: 8px 18px;
-}
-
-.date-field-selected .field-title {
-  color: #ffffff;
-}
-
-.date-field-selected .date-input-button {
-  color: #ffffff;
-}
-
-
-/* =========================
-   SEARCH BUTTON
-========================= */
-
-.search-button {
-  flex-shrink: 0;
-
-  width: 50px;
-  height: 50px;
-
-  margin-left: auto;
-
-  border: none;
-  border-radius: 50%;
-
-  background: #6f6558;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-}
-
-.search-button img {
-  width: 30px;
-  height: 30px;
 }
 
 
@@ -321,9 +158,10 @@
   height: 19px;
 }
 
+
 /* ========================================
    COMPACT HEADER
-   ======================================== */
+======================================== */
 
 .compact-header {
   position: fixed;
@@ -338,6 +176,7 @@
   background: #dddbd7;
 
   opacity: 1;
+
   overflow: visible;
 
   animation: compactHeaderAppear 0.3s ease-out;
@@ -347,7 +186,6 @@
   content: '';
 
   position: absolute;
-
   top: 0;
   left: 0;
 
@@ -360,10 +198,9 @@
 }
 
 
-
 /* ========================================
    COMPACT HEADER ANIMATION
-   ======================================== */
+======================================== */
 
 @keyframes compactHeaderAppear {
   from {
@@ -380,7 +217,7 @@
 
 /* ========================================
    TOP ROW
-   ======================================== */
+======================================== */
 
 .compact-top {
   position: relative;
@@ -391,12 +228,11 @@
 
 
 /* ========================================
-   LOGO
-   ======================================== */
+   COMPACT LOGO
+======================================== */
 
 .compact-logo {
   position: absolute;
-
   left: 20px;
   top: 7px;
 
@@ -410,88 +246,8 @@
 
 
 /* ========================================
-   SEARCH
-   ======================================== */
-
-.compact-search-row {
-  position: absolute;
-
-  left: 50%;
-  top: 5px;
-
-  width: 452px;
-  height: 45px;
-
-  transform: translateX(-50%);
-}
-
-
-.compact-search-bar {
-  position: relative;
-
-  width: 452px;
-  height: 45px;
-
-  box-sizing: border-box;
-
-  border: 1px solid #2c2823;
-  border-radius: 24px;
-
-  display: flex;
-  align-items: center;
-
-  padding: 0 5px 0 18px;
-}
-
-
-/* ========================================
-   SEARCH FIELDS
-   ======================================== */
-
-.compact-search-bar .search-field {
-  height: 30px;
-  padding: 0 12px;
-
-  justify-content: center;
-}
-
-
-.compact-search-bar .search-field.destination {
-  width: 85px;
-}
-
-
-.compact-search-bar .search-field:not(.destination) {
-  width: 125px;
-}
-
-
-.compact-search-bar .search-separator {
-  height: 27px;
-}
-
-
-/* ========================================
-   SEARCH BUTTON
-   ======================================== */
-
-.compact-search-bar .search-button {
-  width: 36px;
-  height: 36px;
-
-  margin-left: auto;
-}
-
-
-.compact-search-bar .search-button img {
-  width: 22px;
-  height: 22px;
-}
-
-
-/* ========================================
-   ACCOUNT
-   ======================================== */
+   COMPACT ACCOUNT
+======================================== */
 
 .compact-top .account-button {
   position: absolute;
@@ -509,7 +265,7 @@
 
 /* ========================================
    CATEGORIES
-   ======================================== */
+======================================== */
 
 .compact-header > .category-nav {
   position: absolute;
@@ -526,103 +282,4 @@
 
 .header-scrolled > .category-nav {
   visibility: hidden;
-}
-
-/* ========================================
-   REGION PICKER
-   ======================================== */
-
-   .destination {
-  cursor: pointer;
-}
-
-.destination-selected {
-  position: relative;
-  height: 61px;
-  box-sizing: border-box;
-  padding: 0 18px;
-  z-index: 1;
-}
-
-.destination-selected::before {
-  content: '';
-  position: absolute;
-  left: -32px;
-  top: 0;
-  width: calc(100% + 32px);
-  height: 61px;
-  border-radius: 26px;
-  background: #6f6558;
-  z-index: -1;
-}
-
-.destination-selected .field-title,
-.destination-selected .field-placeholder {
-  position: relative;
-  z-index: 1;
-}
-
-.destination-selected .field-title {
-  color: #ffffff;
-}
-
-.destination-selected .field-placeholder {
-  color: #ffffff;
-}
-
-.compact-search-bar .destination-selected {
-  height: 43px;
-}
-
-.compact-search-bar .destination-selected::before {
-  left: -18px;
-  width: calc(100% + 18px);
-  height: 43px;
-  border-radius: 22px;
-}
-
-.compact-search-bar .destination-selected .field-title {
-  color: #ffffff;
-}
-
-.compact-search-bar .destination-selected .field-placeholder {
-  color: #ffffff;
-}
-
-/* ========================================
-   Guest Picker
-   ======================================== */
-
-   .guests {
-  cursor: pointer;
-  border-radius: 26px;
-}
-
-.guests-selected {
-  height: 61px;
-  box-sizing: border-box;
-  padding: 8px 18px;
-  background: #6f6558;
-  border-radius: 26px;
-}
-
-.guests-selected .field-title,
-.guests-selected .field-placeholder {
-  color: #ffffff;
-}
-
-/* COMPACT */
-
-.compact-search-bar .guests {
-  border-radius: 22px;
-}
-
-.compact-search-bar .guests-selected {
-  background: #6f6558;
-  border-radius: 22px;
-}
-
-.compact-search-bar .guests-selected .field-title,
-.compact-search-bar .guests-selected .field-placeholder {
-  color: #ffffff;
 }

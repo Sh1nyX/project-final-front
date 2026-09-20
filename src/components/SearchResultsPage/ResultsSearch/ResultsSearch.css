@@ -1,0 +1,94 @@
+.results-search {
+  width: 100%;
+  height: 102px;
+  padding: 0 80px;
+  box-sizing: border-box;
+
+  background: #403B35;
+}
+
+.results-search-inner {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================
+   COMMON SEARCH BAR
+========================= */
+
+.results-search .search-row {
+  position: static;
+
+  width: 1120px;
+  height: 64px;
+
+  margin: 0;
+}
+
+.results-search .search-bar {
+  position: relative;
+
+  left: auto;
+  top: auto;
+
+  width: 1120px;
+  height: 64px;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 28px;
+
+  padding: 0 26px;
+
+  background: #F7F4EF;
+}
+
+
+/* =========================
+   MAP BUTTON
+========================= */
+
+.results-map-button {
+  width: 183px;
+  height: 48px;
+
+  padding: 14px 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border: none;
+  border-radius: 28px;
+
+  background: #796D5F;
+  color: #FFFFFF;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.results-map-button span {
+  white-space: nowrap;
+}
+
+.results-map-button img {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+  object-fit: contain;
+}
