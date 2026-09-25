@@ -1,0 +1,195 @@
+.listing-header {
+  width: 1132px;
+  margin: 0 auto;
+}
+
+.listing-header-top {
+  height: 130px;
+
+  display: flex;
+  align-items: center;
+}
+
+.listing-logo {
+  width: 120px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 24px;
+  line-height: 62px;
+  font-weight: 500;
+
+  color: #211e1a;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.listing-logo:hover,
+.listing-logo:visited,
+.listing-logo:active {
+  color: #211e1a;
+  text-decoration: none;
+}
+
+.listing-search {
+  width: 303px;
+  height: 49px;
+
+  margin-left: 255px;
+  padding: 0 8px 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  border: 1px solid #2c2823;
+  border-radius: 26px;
+
+  background: transparent;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 15px;
+  font-weight: 500;
+
+  color: #211e1a;
+
+  cursor: pointer;
+}
+
+.listing-search-button {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: #6f6558;
+}
+
+.listing-search-button img {
+  width: 22px;
+  height: 22px;
+
+  filter: brightness(0) invert(1);
+}
+
+.listing-host-link {
+  margin-left: 38px;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 12px;
+  line-height: 31px;
+  font-weight: 500;
+
+  color: #211e1a;
+  text-decoration: underline;
+
+  white-space: nowrap;
+}
+
+.listing-host-link:hover,
+.listing-host-link:visited,
+.listing-host-link:active {
+  color: #211e1a;
+}
+
+.listing-account-button {
+  width: 87px;
+  height: 47px;
+
+  margin-left: auto;
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+
+  border: 1px solid #211e1a;
+  border-radius: 26px;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.listing-account-button img:first-child {
+  width: 18px;
+  height: 18px;
+}
+
+.listing-account-button img:last-child {
+  width: 20px;
+  height: 20px;
+}
+
+.listing-heading-row {
+  min-height: 111px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.listing-heading h1 {
+  max-width: 700px;
+
+  margin: 0;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 20px;
+  line-height: 52px;
+  font-weight: 600;
+
+  color: #211e1a;
+}
+
+.listing-meta {
+  margin-left: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 14px;
+  line-height: 36px;
+  font-weight: 500;
+
+  color: #48433d;
+}
+
+.listing-actions {
+  padding-top: 46px;
+
+  display: flex;
+  gap: 38px;
+}
+
+.listing-actions button {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 12px;
+  line-height: 31px;
+  font-weight: 500;
+
+  color: #211e1a;
+  text-decoration: underline;
+
+  cursor: pointer;
+}

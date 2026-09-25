@@ -1,0 +1,78 @@
+.listing-location {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 52px 0;
+  border-bottom: 1px solid #47433c;
+}
+
+.listing-location h2 {
+  margin: 0 0 32px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  line-height: 17px;
+  font-weight: 700;
+  color: #211e1a;
+}
+
+.listing-location-map {
+  width: 100%;
+}
+
+.listing-location-info {
+  margin-top: 34px;
+}
+
+.listing-location-info strong {
+  display: block;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+}
+
+.listing-location-address {
+  margin: 14px 0 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #211e1a;
+}
+
+.listing-location-description {
+  max-width: 620px;
+
+  margin: 14px 0 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #211e1a;
+}
+
+.listing-location-more {
+  margin-top: 22px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}

@@ -4,6 +4,11 @@ const api = axios.create({
   baseURL: 'http://localhost:5000/api',
 })
 
+export const getListingById = async (id) => {
+  const response = await api.get(`/listings/${id}`)
+  return response.data
+}
+
 export const getListings = async ({
   check_in = '',
   check_out = '',

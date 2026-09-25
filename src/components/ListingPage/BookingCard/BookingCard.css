@@ -1,0 +1,193 @@
+.booking-card {
+  width: 374px;
+
+  box-sizing: border-box;
+
+  padding: 20px 24px;
+
+  border: 1px solid #211e1a;
+  border-radius: 30px 30px 25px 25px;
+
+  backdrop-filter: blur(2px);
+
+  background: rgba(221, 219, 215, 0.35);
+
+  position: sticky;
+  top: 31px;
+
+  align-self: start;
+}
+
+.booking-price {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+
+  margin-bottom: 16px;
+}
+
+.booking-price strong {
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 16px;
+  line-height: 41px;
+  font-weight: 600;
+
+  color: #211e1a;
+}
+
+.booking-price span {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.booking-fields {
+  width: 324px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border: 1px solid #211e1a;
+  border-radius: 13px;
+
+  overflow: hidden;
+}
+
+.booking-field {
+  min-height: 56px;
+
+  box-sizing: border-box;
+
+  padding: 8px 11px;
+
+  border: none;
+
+  background: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.booking-field-date:first-child {
+  border-right: 1px solid #211e1a;
+  border-bottom: 1px solid #211e1a;
+}
+
+.booking-field-date:nth-child(2) {
+  border-bottom: 1px solid #211e1a;
+}
+
+.booking-field-guests {
+  grid-column: 1 / -1;
+}
+
+.booking-label {
+  display: block;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #48433d;
+}
+
+.booking-value {
+  display: block;
+
+  margin-top: 2px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.booking-field:hover {
+  background: rgba(111, 101, 88, 0.08);
+}
+
+.booking-button {
+  width: 323px;
+  height: 46px;
+
+  margin-top: 16px;
+
+  border: none;
+  border-radius: 16px;
+
+  background: #6f6558;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.booking-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+.booking-note {
+  margin: 15px 0 0;
+
+  text-align: center;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.booking-summary {
+  margin-top: 28px;
+}
+
+.booking-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.booking-summary-row span:first-child {
+  text-decoration: underline;
+}
+
+.booking-summary-row strong {
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.booking-summary-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 18px 0;
+
+  background: #47433c;
+}
+
+.booking-summary-total {
+  font-weight: 700;
+}
+
+.booking-summary-total strong {
+  font-weight: 700;
+}

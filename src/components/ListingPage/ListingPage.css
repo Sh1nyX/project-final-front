@@ -1,0 +1,84 @@
+#listing-gallery,
+#listing-details,
+#listing-amenities,
+#listing-reviews,
+#listing-location {
+  scroll-margin-top: 30px;
+}
+
+.listing-page {
+  min-height: 100vh;
+  background: #dddbd7;
+  padding-bottom: 100px;
+}
+
+.listing-page-status {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #dddbd7;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+
+  color: #211e1a;
+}
+
+.listing-booking-section {
+  width: 1132px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 657px 374px;
+  column-gap: 93px;
+
+  align-items: start;
+}
+
+.listing-content-main {
+  grid-column: 1;
+  grid-row: 1;
+
+  min-width: 0;
+}
+
+.listing-booking-section > .booking-card {
+  grid-column: 2;
+  grid-row: 1;
+
+  position: sticky;
+  top: 31px;
+
+  align-self: start;
+}
+
+.listing-reviews-wide {
+  width: 1132px;
+  margin: 0 auto;
+}
+
+#listing-location {
+  width: 1132px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+#listing-location .listing-location {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#listing-location .listing-map {
+  width: 100%;
+}
+
+.listing-page > .listing-host,
+.listing-page > .important-information {
+  width: 1132px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}

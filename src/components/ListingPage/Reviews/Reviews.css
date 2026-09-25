@@ -1,0 +1,196 @@
+.listing-reviews {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+
+  padding: 52px 0;
+  border-bottom: 1px solid #47433c;
+}
+
+.reviews-header {
+  width: 100%;
+
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+}
+
+.reviews-header h2 {
+  margin: 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+}
+
+.reviews-overview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviews-score {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+
+  color: #211e1a;
+}
+
+.reviews-star {
+  font-size: 17px;
+}
+
+.reviews-count {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+
+  color: #48433d;
+}
+
+.reviews-empty {
+  padding: 30px 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 90px;
+  row-gap: 42px;
+}
+
+.review-card {
+  min-width: 0;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.review-avatar {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+.review-avatar-placeholder {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #6f6558;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #fff;
+}
+
+.review-author-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.review-author-info strong {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+}
+
+.review-author-info span {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+
+  color: #6f6558;
+}
+
+.review-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 13px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+
+  color: #211e1a;
+}
+
+.review-rating span {
+  font-size: 14px;
+}
+
+.review-comment {
+  margin: 12px 0 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #211e1a;
+}
+
+.reviews-more {
+  min-width: 259px;
+  height: 46px;
+
+  margin-top: 40px;
+
+  padding: 0 24px;
+
+  border: 1px solid #211e1a;
+  border-radius: 16px;
+
+  background: transparent;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+
+  cursor: pointer;
+}
+
+.reviews-more:hover {
+  background: rgba(111, 101, 88, 0.08);
+}

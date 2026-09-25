@@ -1,0 +1,121 @@
+.listing-host {
+  width: 657px;
+  padding: 42px 0;
+  border-top: 1px solid #b9b7b3;
+}
+
+.listing-host-main {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.listing-host-avatar-wrapper {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.listing-host-avatar {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.listing-host-avatar-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #c8c5c0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inknut Antiqua", serif;
+  font-size: 24px;
+  color: #252525;
+}
+
+.listing-host-info h2 {
+  margin: 0;
+  font-family: "Inknut Antiqua", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #202020;
+}
+
+.listing-host-info p {
+  margin: 5px 0 8px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  color: #444;
+}
+
+.listing-host-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  color: #252525;
+}
+
+.listing-host-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.listing-host-bio {
+  margin-top: 32px;
+}
+
+.listing-host-bio h3,
+.listing-host-contact h3 {
+  margin: 0 0 10px;
+  font-family: "Inknut Antiqua", serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #202020;
+}
+
+.listing-host-bio p,
+.listing-host-contact p {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #303030;
+}
+
+.listing-host-contact {
+  margin-top: 34px;
+}
+
+.listing-host-contact-button {
+  margin-top: 20px;
+  min-width: 260px;
+  height: 46px;
+  padding: 0 24px;
+
+  border: 1px solid #222;
+  border-radius: 10px;
+
+  background: transparent;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.listing-host-contact-button:hover {
+  background: #222;
+  color: #fff;
+}

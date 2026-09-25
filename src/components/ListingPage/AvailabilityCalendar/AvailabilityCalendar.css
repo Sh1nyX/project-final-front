@@ -1,0 +1,187 @@
+.availability-calendar {
+  width: 657px;
+
+  padding: 52px 0;
+
+  border-bottom: 1px solid #47433c;
+}
+
+.availability-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 38px;
+}
+
+.availability-heading h2 {
+  margin: 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+}
+
+.availability-heading p {
+  margin: 14px 0 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #211e1a;
+}
+
+.availability-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.availability-controls button {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: 1px solid #211e1a;
+  border-radius: 50%;
+
+  background: transparent;
+
+  font-size: 16px;
+
+  color: #211e1a;
+
+  cursor: pointer;
+}
+
+.availability-months {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 48px;
+}
+
+.availability-month h3 {
+  margin: 0 0 26px;
+
+  text-align: center;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+}
+
+.availability-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  margin-bottom: 14px;
+}
+
+.availability-weekdays span {
+  text-align: center;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #211e1a;
+}
+
+.availability-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  row-gap: 12px;
+}
+
+.availability-day,
+.availability-empty {
+  width: 34px;
+  height: 34px;
+
+  justify-self: center;
+}
+
+.availability-day {
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+
+  color: #211e1a;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.availability-day:not(.disabled):hover {
+  background: #cfc9c2;
+}
+
+.availability-day.disabled {
+  color: #9b958e;
+
+  cursor: not-allowed;
+}
+
+.availability-day.booked {
+  text-decoration: line-through;
+}
+
+.availability-day.selected-start,
+.availability-day.selected-end {
+  background: #211e1a;
+
+  color: #fff;
+}
+
+.availability-day.selected-between {
+  border-radius: 0;
+
+  background: #d3cec8;
+}
+
+.availability-day.selected-start {
+  border-radius: 50% 0 0 50%;
+}
+
+.availability-day.selected-end {
+  border-radius: 0 50% 50% 0;
+}
+
+.availability-clear {
+  margin-top: 28px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #211e1a;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}

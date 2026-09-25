@@ -6,6 +6,7 @@ import ListingGrid from './components/ListingGrid/ListingGrid'
 import ContinueCategory from './components/ContinueCategory/ContinueCategory'
 import Footer from './components/Footer/Footer'
 import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage'
+import ListingPage from './components/ListingPage/ListingPage'
 
 import { getListings } from './services/api'
 
@@ -176,7 +177,14 @@ function App() {
         path="/search"
         element={<SearchResultsPage />}
       />
+
+      <Route
+        path="/listing/:id"
+        element={<ListingPage />}
+      />
     </Routes>
+
+    
   )
 }
 

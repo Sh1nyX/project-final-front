@@ -1,4 +1,5 @@
 import './ListingCard.css'
+import { useNavigate } from 'react-router-dom'
 
 function getAvailableNights(from, to) {
   if (!from || !to) {
@@ -23,6 +24,7 @@ function ListingCard({
   isTotalPrice,
 }) {
   const image = listing.images?.[0]
+  const navigate = useNavigate()
 
   const pricePerNight =
     Number(listing.price_per_night) || 0
@@ -38,7 +40,10 @@ function ListingCard({
       : pricePerNight
 
   return (
-    <article className="listing-card">
+    <article
+      className="listing-card"
+      onClick={() => navigate(`/listing/${listing.id}`)}
+    >
 
       <div className="listing-image-wrapper">
 
@@ -53,6 +58,9 @@ function ListingCard({
         <button
           type="button"
           className="favorite-button"
+          onClick={(event) => {
+            event.stopPropagation()
+          }}
         >
           ♡
         </button>

@@ -1,0 +1,143 @@
+.listing-overview {
+  width: 657px;
+
+  color: #211e1a;
+}
+
+.listing-overview-top {
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid #47433c;
+}
+
+.listing-overview-top h2 {
+  margin: 0 0 8px;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 24px;
+  line-height: 42px;
+  font-weight: 600;
+}
+
+.listing-capacity {
+  margin: 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.listing-highlights {
+  border-bottom: 1px solid #47433c;
+}
+
+.listing-highlight {
+  padding: 26px 0;
+
+  border-bottom: 1px solid #47433c;
+}
+
+.listing-highlight:last-child {
+  border-bottom: none;
+}
+
+.listing-highlight strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+}
+
+.listing-highlight p {
+  margin: 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.listing-description {
+  padding-top: 26px;
+}
+
+.listing-description-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 657px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+
+  padding: 0 24px;
+
+  box-sizing: border-box;
+
+  background: rgba(221, 219, 215, 0.96);
+  border-top: 1px solid #b9b7b3;
+
+  z-index: 1000;
+}
+
+.listing-description-nav button {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #211e1a;
+
+  cursor: pointer;
+}
+
+.listing-description-nav button:hover {
+  text-decoration: underline;
+}
+
+.listing-description-text {
+  width: 623px;
+
+  margin: 0;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #211e1a;
+}
+
+.listing-description-more {
+  margin-top: 30px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+  text-decoration: underline;
+
+  cursor: pointer;
+}

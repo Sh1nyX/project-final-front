@@ -1,0 +1,73 @@
+.listing-amenities {
+  width: 657px;
+
+  padding: 50px 0;
+
+  border-bottom: 1px solid #47433c;
+}
+
+.listing-amenities h2 {
+  margin: 0 0 35px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+}
+
+.amenities-grid {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  column-gap: 60px;
+  row-gap: 34px;
+}
+
+.amenity-item {
+  min-height: 24px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+
+  color: #211e1a;
+}
+
+.amenity-dot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  margin-top: 5px;
+
+  border-radius: 50%;
+
+  background: #211e1a;
+}
+
+.amenities-more {
+  margin-top: 42px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+
+  color: #211e1a;
+
+  cursor: pointer;
+}
