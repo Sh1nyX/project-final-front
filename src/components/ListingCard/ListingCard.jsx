@@ -1,5 +1,9 @@
 import './ListingCard.css'
-import { useNavigate } from 'react-router-dom'
+
+import {
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom'
 
 function getAvailableNights(from, to) {
   if (!from || !to) {
@@ -24,7 +28,9 @@ function ListingCard({
   isTotalPrice,
 }) {
   const image = listing.images?.[0]
+
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
 
   const pricePerNight =
     Number(listing.price_per_night) || 0
@@ -39,10 +45,41 @@ function ListingCard({
       ? pricePerNight * availableNights
       : pricePerNight
 
+  const openListing = () => {
+    const checkIn =
+      searchParams.get('check_in')
+
+    const checkOut =
+      searchParams.get('check_out')
+
+    if (checkIn && checkOut) {
+      navigate(
+        `/listing/${listing.id}?check_in=${encodeURIComponent(
+          checkIn
+        )}&check_out=${encodeURIComponent(
+          checkOut
+        )}`
+      )
+
+      return
+    }
+
+    navigate(`/listing/${listing.id}`)
+  }
+
   return (
     <article
       className="listing-card"
-      onClick={() => navigate(`/listing/${listing.id}`)}
+      onClick={(event) => {
+        const selectedText =
+          window.getSelection()?.toString()
+
+        if (selectedText) {
+          return
+        }
+
+        openListing()
+      }}
     >
 
       <div className="listing-image-wrapper">

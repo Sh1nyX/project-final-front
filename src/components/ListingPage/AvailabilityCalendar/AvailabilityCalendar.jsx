@@ -1,4 +1,8 @@
-import { useMemo, useState } from 'react'
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
 import './AvailabilityCalendar.css'
 
@@ -276,20 +280,40 @@ function AvailabilityCalendar({
     ? listing.bookings
     : []
 
-  const initialMonth = availableFrom
+  const initialMonth = checkIn
+  ? parseDateKey(checkIn)
+  : availableFrom
     ? parseDateKey(availableFrom)
     : new Date()
 
-  const [visibleMonth, setVisibleMonth] =
+    const [visibleMonth, setVisibleMonth] =
     useState(
-      new Date(
+        new Date(
         Date.UTC(
-          initialMonth.getUTCFullYear(),
-          initialMonth.getUTCMonth(),
-          1
+            initialMonth.getUTCFullYear(),
+            initialMonth.getUTCMonth(),
+            1
         )
+        )
+    )
+
+    useEffect(() => {
+  if (!checkIn) {
+    return
+  }
+
+  const selectedMonth = parseDateKey(checkIn)
+
+  setVisibleMonth(
+    new Date(
+      Date.UTC(
+        selectedMonth.getUTCFullYear(),
+        selectedMonth.getUTCMonth(),
+        1
       )
     )
+  )
+}, [checkIn])
 
   const nights = getNights(
     checkIn,

@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import {
+  useParams,
+  useSearchParams,
+} from 'react-router-dom'
 
 import './ListingPage.css'
 
@@ -22,11 +25,24 @@ import ListingStickyBar from './ListingStickyBar/ListingStickyBar'
 function ListingPage() {
   const { id } = useParams()
 
+  const [searchParams] = useSearchParams()
+
+  const initialCheckIn =
+    searchParams.get('check_in') || ''
+
+  const initialCheckOut =
+    searchParams.get('check_out') || ''
+
   const [listing, setListing] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [checkIn, setCheckIn] = useState('')
-  const [checkOut, setCheckOut] = useState('')
+  
+  const [checkIn, setCheckIn] =
+  useState(initialCheckIn)
+
+  const [checkOut, setCheckOut] =
+  useState(initialCheckOut)
+
   const [isStickyBarVisible, setIsStickyBarVisible] = useState(true)
 
   useEffect(() => {

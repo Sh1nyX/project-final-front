@@ -16,6 +16,7 @@
   background: #F1EDE7;
   border: 1px solid #CFC7BD;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .result-card-image-wrapper {
@@ -75,6 +76,13 @@
   line-height: 1;
 
   cursor: pointer;
+}
+
+.result-card-price,
+.result-card-title,
+.result-card-details,
+.result-card-location {
+  user-select: text;
 }
 
 

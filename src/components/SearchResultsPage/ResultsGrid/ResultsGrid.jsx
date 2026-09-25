@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import {
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom'
 
 import './ResultsGrid.css'
 
@@ -10,6 +13,7 @@ const PAGE_SIZE = 6
 
 function ResultsGrid() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const navigate = useNavigate()
 
   const [listings, setListings] = useState([])
   const [total, setTotal] = useState(0)
@@ -147,6 +151,35 @@ function ResultsGrid() {
           <article
             className="result-card"
             key={listing.id}
+            onClick={() => {
+              const selectedText =
+                window.getSelection()?.toString()
+
+              if (selectedText) {
+                return
+              }
+
+              const checkIn =
+                searchParams.get('check_in')
+
+              const checkOut =
+                searchParams.get('check_out')
+
+              if (checkIn && checkOut) {
+                const params = new URLSearchParams()
+
+                params.set('check_in', checkIn)
+                params.set('check_out', checkOut)
+
+                navigate(
+                  `/listing/${listing.id}?${params.toString()}`
+                )
+
+                return
+              }
+
+              navigate(`/listing/${listing.id}`)
+            }}
           >
             <div className="result-card-image-wrapper">
 
@@ -166,6 +199,9 @@ function ResultsGrid() {
                 type="button"
                 className="result-card-favorite"
                 aria-label="Додати до обраного"
+                onClick={(event) => {
+                  event.stopPropagation()
+                }}
               >
                 ♡
               </button>
