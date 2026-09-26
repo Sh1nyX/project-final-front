@@ -17,6 +17,7 @@ import markerIcon from 'leaflet/dist/images/marker-icon.png'
 import markerIconRetina from 'leaflet/dist/images/marker-icon-2x.png'
 import markerShadow from 'leaflet/dist/images/marker-shadow.png'
 
+
 const defaultIcon = L.icon({
   iconUrl: markerIcon,
   iconRetinaUrl: markerIconRetina,
@@ -27,6 +28,7 @@ const defaultIcon = L.icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 })
+
 
 function FitMapToMarkers({ listings }) {
   const map = useMap()
@@ -71,6 +73,7 @@ function FitMapToMarkers({ listings }) {
   return null
 }
 
+
 function ListingsMapModal({
   isOpen,
   onClose,
@@ -82,8 +85,24 @@ function ListingsMapModal({
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 
+  /*
+    Делаем стабильный ключ для searchParams.
+
+    Сам объект searchParams может пересоздаваться
+    при каждом рендере родительского компонента.
+
+    JSON.stringify позволяет запускать загрузку
+    только тогда, когда реально изменились параметры поиска.
+  */
+  const searchParamsKey = JSON.stringify(searchParams)
+
+
   useEffect(() => {
-    if (!isOpen) return
+    if (!isOpen) {
+      return
+    }
+
+    let cancelled = false
 
     const loadMapListings = async () => {
       try {
@@ -91,42 +110,69 @@ function ListingsMapModal({
         setError('')
 
         const data = await getListings({
-            check_in: searchParams.check_in || '',
-            check_out: searchParams.check_out || '',
-            flexible_days: Number(searchParams.flexible_days) || 0,
+          check_in: searchParams.check_in || '',
+          check_out: searchParams.check_out || '',
+          flexible_days: Number(searchParams.flexible_days) || 0,
 
-            region: searchParams.region || '',
-            category_id: searchParams.category_id || '',
-            guests: Number(searchParams.guests) || 0,
+          region: searchParams.region || '',
+          category_id: searchParams.category_id || '',
+          guests: Number(searchParams.guests) || 0,
 
-            min_price: searchParams.min_price || '',
-            max_price: searchParams.max_price || '',
+          min_price: searchParams.min_price || '',
+          max_price: searchParams.max_price || '',
 
-            property_type: searchParams.property_type || '',
-            min_bedrooms: searchParams.min_bedrooms || '',
-            min_beds: searchParams.min_beds || '',
-            amenities: searchParams.amenities || '',
+          property_type: searchParams.property_type || '',
+          min_bedrooms: searchParams.min_bedrooms || '',
+          min_beds: searchParams.min_beds || '',
+          amenities: searchParams.amenities || '',
 
-            sort: searchParams.sort || 'recommended',
+          sort: searchParams.sort || 'recommended',
 
-            limit: 1000,
-            page: 1,
+          limit: 1000,
+          page: 1,
         })
+
+        /*
+          Если компонент уже успели закрыть
+          или параметры поиска изменились —
+          старый запрос больше ничего не меняет.
+        */
+        if (cancelled) {
+          return
+        }
 
         setListings(data.listings || [])
       } catch (error) {
+        if (cancelled) {
+          return
+        }
+
         console.error('MAP LISTINGS ERROR:', error)
-        setError('Не вдалося завантажити оголошення')
+
+        setError(
+          'Не вдалося завантажити оголошення'
+        )
+
+        setListings([])
       } finally {
-        setIsLoading(false)
+        if (!cancelled) {
+          setIsLoading(false)
+        }
       }
     }
 
     loadMapListings()
-},  [isOpen, searchParams])
+
+    return () => {
+      cancelled = true
+    }
+  }, [isOpen, searchParamsKey])
+
 
   useEffect(() => {
-    if (!isOpen) return
+    if (!isOpen) {
+      return
+    }
 
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
@@ -134,26 +180,37 @@ function ListingsMapModal({
       }
     }
 
-    window.addEventListener('keydown', handleEscape)
+    window.addEventListener(
+      'keydown',
+      handleEscape
+    )
 
     return () => {
-      window.removeEventListener('keydown', handleEscape)
+      window.removeEventListener(
+        'keydown',
+        handleEscape
+      )
     }
   }, [isOpen, onClose])
+
 
   if (!isOpen) {
     return null
   }
 
-  const listingsWithCoordinates = listings.filter((listing) => {
-    const latitude = Number(listing.latitude)
-    const longitude = Number(listing.longitude)
 
-    return (
-      Number.isFinite(latitude) &&
-      Number.isFinite(longitude)
-    )
-  })
+  const listingsWithCoordinates = listings.filter(
+    (listing) => {
+      const latitude = Number(listing.latitude)
+      const longitude = Number(listing.longitude)
+
+      return (
+        Number.isFinite(latitude) &&
+        Number.isFinite(longitude)
+      )
+    }
+  )
+
 
   return (
     <div className="listings-map-modal">
@@ -176,10 +233,12 @@ function ListingsMapModal({
 
       </div>
 
+
       <MapContainer
         center={[48.5, 31]}
         zoom={5}
         scrollWheelZoom={true}
+        zoomControl={true}
         className="listings-map-modal-container"
       >
 
@@ -188,58 +247,84 @@ function ListingsMapModal({
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
+
         <FitMapToMarkers
           listings={listingsWithCoordinates}
         />
 
-        {listingsWithCoordinates.map((listing) => {
-          const latitude = Number(listing.latitude)
-          const longitude = Number(listing.longitude)
 
-          return (
-            <Marker
-              key={listing.id}
-              position={[latitude, longitude]}
-              icon={defaultIcon}
-            >
-              <Popup>
-                <div className="listings-map-popup">
+        {listingsWithCoordinates.map(
+          (listing) => {
+            const latitude = Number(
+              listing.latitude
+            )
 
-                  {listing.images?.[0] && (
-                    <img
-                      src={listing.images[0]}
-                      alt=""
-                      className="listings-map-popup-image"
-                    />
-                  )}
+            const longitude = Number(
+              listing.longitude
+            )
 
-                  <strong>
-                    {listing.title || 'Помешкання'}
-                  </strong>
+            return (
+              <Marker
+                key={listing.id}
+                position={[
+                  latitude,
+                  longitude,
+                ]}
+                icon={defaultIcon}
+              >
 
-                  <span>
-                    {Number(listing.price_per_night || 0)}
-                    {' '}
-                    $ / ніч
-                  </span>
+                <Popup>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onClose()
-                      navigate(`/listing/${listing.id}`)
-                    }}
-                  >
-                    Переглянути
-                  </button>
+                  <div className="listings-map-popup">
 
-                </div>
-              </Popup>
-            </Marker>
-          )
-        })}
+                    {listing.images?.[0] && (
+                      <img
+                        src={listing.images[0]}
+                        alt=""
+                        className="listings-map-popup-image"
+                      />
+                    )}
+
+
+                    <strong>
+                      {listing.title ||
+                        'Помешкання'}
+                    </strong>
+
+
+                    <span>
+                      {Number(
+                        listing.price_per_night || 0
+                      )}
+                      {' '}
+                      $ / ніч
+                    </span>
+
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose()
+
+                        navigate(
+                          `/listing/${listing.id}`
+                        )
+                      }}
+                    >
+                      Переглянути
+                    </button>
+
+                  </div>
+
+                </Popup>
+
+              </Marker>
+            )
+          }
+        )}
 
       </MapContainer>
+
 
       {error && (
         <div className="listings-map-error">
@@ -250,5 +335,6 @@ function ListingsMapModal({
     </div>
   )
 }
+
 
 export default ListingsMapModal

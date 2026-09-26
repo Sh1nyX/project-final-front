@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 import './SearchResultsPage.css'
 
@@ -19,13 +19,13 @@ function SearchResultsPage() {
   const [searchParams] = useSearchParams()
   const [isMapOpen, setIsMapOpen] = useState(false)
 
-  const mapSearchParams = {
+  const mapSearchParams = useMemo(() => ({
   check_in: searchParams.get('check_in') || '',
   check_out: searchParams.get('check_out') || '',
-  flexible_days: searchParams.get('flexible_days') || '',
+  flexible_days: Number(searchParams.get('flexible_days')) || 0,
   region: searchParams.get('region') || '',
   category_id: searchParams.get('category_id') || '',
-  guests: searchParams.get('guests') || '',
+  guests: Number(searchParams.get('guests')) || 0,
   min_price: searchParams.get('min_price') || '',
   max_price: searchParams.get('max_price') || '',
   property_type: searchParams.get('property_type') || '',
@@ -33,7 +33,7 @@ function SearchResultsPage() {
   min_beds: searchParams.get('min_beds') || '',
   amenities: searchParams.get('amenities') || '',
   sort: searchParams.get('sort') || 'recommended',
-}
+}), [searchParams])
 
   const selectedCategoryIds = searchParams.get('category_id')
     ? searchParams
