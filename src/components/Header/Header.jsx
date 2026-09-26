@@ -139,6 +139,7 @@ function Header({
   onDatesChange,
   isTotalPrice,
   onTotalPriceChange,
+  onMapOpen,
 }) {
   const navigate = useNavigate()
 
@@ -308,7 +309,11 @@ function Header({
           isGuestPickerOpen={isGuestPickerOpen}
         />
 
-        <button className="map-button">
+        <button
+          className="map-button"
+          type="button"
+          onClick={onMapOpen}
+        >
           <span>Показати мапу</span>
           <img src={mapIcon} alt="" />
         </button>

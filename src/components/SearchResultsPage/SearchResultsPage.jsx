@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom'
+import { useState } from 'react'
 
 import './SearchResultsPage.css'
 
@@ -12,9 +13,27 @@ import ResultsGrid from './ResultsGrid/ResultsGrid'
 import ResultsFooter from './ResultsFooter/ResultsFooter'
 import ResultsPagination from './ResultsPagination/ResultsPagination'
 import ResultsSort from './ResultsSort/ResultsSort'
+import ListingsMapModal from '../ListingsMapModal/ListingsMapModal'
 
 function SearchResultsPage() {
   const [searchParams] = useSearchParams()
+  const [isMapOpen, setIsMapOpen] = useState(false)
+
+  const mapSearchParams = {
+  check_in: searchParams.get('check_in') || '',
+  check_out: searchParams.get('check_out') || '',
+  flexible_days: searchParams.get('flexible_days') || '',
+  region: searchParams.get('region') || '',
+  category_id: searchParams.get('category_id') || '',
+  guests: searchParams.get('guests') || '',
+  min_price: searchParams.get('min_price') || '',
+  max_price: searchParams.get('max_price') || '',
+  property_type: searchParams.get('property_type') || '',
+  min_bedrooms: searchParams.get('min_bedrooms') || '',
+  min_beds: searchParams.get('min_beds') || '',
+  amenities: searchParams.get('amenities') || '',
+  sort: searchParams.get('sort') || 'recommended',
+}
 
   const selectedCategoryIds = searchParams.get('category_id')
     ? searchParams
@@ -39,7 +58,15 @@ function SearchResultsPage() {
   return (
     <div className="search-results-page">
 
-      <ResultsHeader />
+      <ResultsHeader
+        onMapOpen={() => setIsMapOpen(true)}
+      />
+
+      <ListingsMapModal
+        isOpen={isMapOpen}
+        onClose={() => setIsMapOpen(false)}
+        searchParams={mapSearchParams}
+      />
 
       <ResultsSearch />
 

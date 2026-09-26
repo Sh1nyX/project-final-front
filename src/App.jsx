@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer'
 import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage'
 import ListingPage from './components/ListingPage/ListingPage'
 import ProfilePage from './components/ProfilePage/ProfilePage'
+import ListingsMapModal from './components/ListingsMapModal/ListingsMapModal'
 
 import { getListings } from './services/api'
 
@@ -49,6 +50,7 @@ function HomePage() {
   const [listings, setListings] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [isMapOpen, setIsMapOpen] = useState(false)
 
   const [visibleCount, setVisibleCount] = useState(18)
   const [isTotalPrice, setIsTotalPrice] = useState(false)
@@ -126,6 +128,12 @@ function HomePage() {
         onCategoryChange={handleCategoryChange}
         isTotalPrice={isTotalPrice}
         onTotalPriceChange={setIsTotalPrice}
+        onMapOpen={() => setIsMapOpen(true)}
+      />
+
+      <ListingsMapModal
+        isOpen={isMapOpen}
+        onClose={() => setIsMapOpen(false)}
       />
 
       <main>

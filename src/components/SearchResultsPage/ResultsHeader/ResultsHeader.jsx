@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import AccountMenu from '../../Auth/AccountMenu'
 
-function ResultsHeader() {
+function ResultsHeader({ onMapOpen }) {
 
   const navigate = useNavigate()
 
@@ -47,6 +47,14 @@ function ResultsHeader() {
 
         <div className="results-profile">
 
+          <button
+            type="button"
+            className="results-map-button"
+            onClick={onMapOpen}
+          >
+            <span>Показати мапу</span>
+          </button>
+
           <a href="#">
             Запропонувати помешкання...
           </a>
@@ -55,7 +63,9 @@ function ResultsHeader() {
 
         </div>
 
-      </div>
+        </div>
+
+      
 
     </header>
   )
