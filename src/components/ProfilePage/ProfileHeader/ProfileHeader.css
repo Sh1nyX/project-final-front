@@ -1,0 +1,110 @@
+.profile-page-header {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 130px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.profile-logo {
+  position: absolute;
+
+  left: 378px;
+  top: 37px;
+
+  width: 100px;
+  height: 52px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 52px;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   HOST LINK
+========================= */
+
+.profile-host-link {
+  position: absolute;
+
+  left: 1131px;
+  top: 49px;
+
+  width: 253px;
+  height: 31px;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 31px;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   ACCOUNT
+========================= */
+
+.profile-account-button {
+  position: absolute;
+
+  left: 1451px;
+  top: 40px;
+
+  width: 87px;
+  height: 47px;
+
+  padding: 0;
+
+  border: 1px solid #211e1a;
+  border-radius: 26px;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+.profile-account-button img:first-child {
+  width: 14px;
+  height: 8px;
+}
+
+.profile-account-button img:last-child {
+  width: 24px;
+  height: 24px;
+}

@@ -37,3 +37,16 @@ export const updateUserProfile = async (data) => {
   const response = await api.put('/auth/me', data)
   return response.data
 }
+
+export const updateUserAvatar = async (file) => {
+  const formData = new FormData()
+
+  formData.append('avatar', file)
+
+  const response = await api.post(
+    '/auth/me/avatar',
+    formData
+  )
+
+  return response.data
+}

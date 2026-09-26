@@ -10,6 +10,7 @@ import {
   loginUser,
   getCurrentUser,
   updateUserProfile,
+  updateUserAvatar,
 } from '../services/auth'
 
 const AuthContext = createContext(null)
@@ -106,6 +107,14 @@ function AuthProvider({ children }) {
     return updatedUser
   }
 
+  const updateAvatar = async (file) => {
+  const updatedUser = await updateUserAvatar(file)
+
+  setUser(updatedUser)
+
+  return updatedUser
+}
+
   return (
     <AuthContext.Provider
       value={{
@@ -117,6 +126,7 @@ function AuthProvider({ children }) {
         logout,
         refreshUser,
         updateProfile,
+        updateAvatar,
       }}
     >
       {children}

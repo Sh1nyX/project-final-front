@@ -1,0 +1,117 @@
+.profile-page-footer {
+  position: absolute;
+
+  left: 0;
+  top: 1034px;
+
+  width: 1920px;
+  height: 46px;
+
+  box-sizing: border-box;
+
+  border-top: 1px solid #6f6558;
+
+  font-family: 'Inder', sans-serif;
+}
+
+
+/* =========================
+   LEFT
+========================= */
+
+.profile-footer-left {
+  position: absolute;
+
+  left: 432px;
+  top: 13px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 32px;
+
+  color: #6f6558;
+
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.profile-footer-left a {
+  color: #6f6558;
+  text-decoration: underline;
+}
+
+
+/* =========================
+   RIGHT
+========================= */
+
+.profile-footer-right {
+  position: absolute;
+
+  left: 1280px;
+  top: 11px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  color: #2c2823;
+
+  font-size: 14px;
+  line-height: 18px;
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+.profile-footer-language {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  white-space: nowrap;
+}
+
+.profile-footer-language img {
+  width: 16px;
+  height: 16px;
+
+  display: block;
+}
+
+
+/* =========================
+   CURRENCY
+========================= */
+
+.profile-footer-currency {
+  white-space: nowrap;
+}
+
+
+/* =========================
+   SOCIAL
+========================= */
+
+.profile-footer-social {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.profile-footer-social img {
+  width: 18px;
+  height: 18px;
+
+  display: block;
+}

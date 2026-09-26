@@ -1,0 +1,112 @@
+.profile-avatar-section {
+  position: absolute;
+
+  left: 485px;
+  top: 140px;
+
+  width: 200px;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.profile-avatar-wrapper {
+  width: 200px;
+  height: 200px;
+}
+
+.profile-avatar {
+  width: 200px;
+  height: 200px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.profile-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #6f6558;
+
+  color: #ffffff;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.profile-avatar-button {
+  position: absolute;
+
+  left: 54px;
+  top: 182px;
+
+  width: 87px;
+  height: 31px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #dddbd7;
+
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+
+  cursor: pointer;
+}
+
+.profile-avatar-button img {
+  width: 14px;
+  height: 14px;
+
+  display: block;
+}
+
+.profile-avatar-error {
+  position: absolute;
+
+  top: 220px;
+  left: 50%;
+
+  width: 220px;
+
+  transform: translateX(-50%);
+
+  color: #a52f2f;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+  line-height: 15px;
+
+  text-align: center;
+}
+
+.profile-avatar-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

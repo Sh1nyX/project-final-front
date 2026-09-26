@@ -1,0 +1,217 @@
+.profile-information {
+  position: absolute;
+
+  left: 807px;
+  top: 676px;
+
+  width: 667px;
+}
+
+.profile-information h2 {
+  margin: 0;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+
+/* =========================
+   BIO CARD
+========================= */
+
+.profile-bio-card {
+  position: relative;
+
+  width: 665px;
+  height: 89px;
+
+  margin-top: 25px;
+
+  box-sizing: border-box;
+
+  border: 1px dashed #000000;
+  border-radius: 6px;
+}
+
+.profile-bio-text {
+  position: absolute;
+
+  left: 15px;
+  top: 18px;
+
+  color: #48433d;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.profile-bio-add {
+  position: absolute;
+
+  left: 16px;
+  top: 46px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   EDIT MODE
+========================= */
+
+.profile-bio-card textarea {
+  position: absolute;
+
+  left: 15px;
+  top: 13px;
+
+  width: 625px;
+  height: 52px;
+
+  padding: 8px;
+
+  box-sizing: border-box;
+
+  resize: none;
+
+  border: 1px solid #6f6558;
+  border-radius: 4px;
+
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+}
+
+.profile-bio-card textarea:focus {
+  outline: none;
+}
+
+.profile-bio-actions {
+  position: absolute;
+
+  right: 12px;
+  bottom: 8px;
+
+  display: flex;
+  gap: 8px;
+}
+
+.profile-bio-actions button {
+  padding: 4px 10px;
+
+  border: 1px solid #211e1a;
+  border-radius: 5px;
+
+  background: #dddbd7;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.profile-bio-actions button:last-child {
+  background: #211e1a;
+  color: #ffffff;
+}
+
+.profile-bio-actions button:first-child {
+  background: transparent;
+  color: #211e1a;
+}
+
+.profile-bio-actions {
+  position: absolute;
+
+  right: 12px;
+  bottom: 8px;
+
+  display: flex;
+  gap: 8px;
+}
+
+.profile-bio-actions button {
+  padding: 4px 10px;
+
+  border: 1px solid #211e1a;
+  border-radius: 5px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.profile-bio-cancel {
+  background: transparent;
+  color: #211e1a;
+}
+
+.profile-bio-save {
+  background: #211e1a;
+  color: #ffffff;
+}
+
+.profile-bio-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.profile-success {
+  margin-top: 10px;
+
+  color: #38734b;
+
+  font-size: 12px;
+}
+
+.profile-error {
+  margin-top: 10px;
+
+  color: #a52f2f;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.profile-information-divider {
+  width: 665px;
+  height: 1px;
+
+  margin-top: 25px;
+
+  background: #6f6558;
+}

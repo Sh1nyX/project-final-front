@@ -1,0 +1,339 @@
+.profile-interests {
+  position: absolute;
+
+  left: 809px;
+  top: 250px;
+
+  width: 665px;
+}
+
+
+/* =========================
+   PROFILE FIELDS
+========================= */
+
+.profile-interest-grid {
+  display: grid;
+
+  grid-template-columns: 306.5px 306.5px;
+
+  column-gap: 50px;
+  row-gap: 0;
+}
+
+.profile-interest-item {
+  width: 306.5px;
+  height: 65px;
+}
+
+.profile-interest-item:hover {
+  color: #211e1a;
+}
+
+.profile-interest-item button {
+  width: 306.5px;
+  height: 65px;
+
+  padding: 0 32px;
+
+  border: none;
+  border-bottom: 1px solid #6f6558;
+
+  background: transparent;
+
+  color: #48433d;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.profile-interest-item button:hover {
+  color: #211e1a;
+}
+
+
+/* =========================
+   FAVORITE SECTION
+========================= */
+
+.profile-favorite-section {
+  position: absolute;
+
+  left: 0;
+  top: 633px;
+
+  width: 665px;
+}
+
+.profile-favorite-section h2 {
+  margin: 0;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+.profile-favorite-section p {
+  width: 622px;
+
+  margin: 13px 0 0;
+
+  color: #48433d;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.profile-favorite-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.profile-favorite-buttons button {
+  width: 84px;
+  height: 36px;
+
+  padding: 0;
+
+  border: 1px dashed #211e1a;
+  border-radius: 16px;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.profile-favorite-buttons img {
+  width: 20px;
+  height: 20px;
+
+  display: block;
+}
+
+.profile-interest-header {
+  position: absolute;
+
+  right: 0;
+  top: -38px;
+
+  display: flex;
+  align-items: center;
+}
+
+.profile-interest-edit {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.profile-interest-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-interest-actions button {
+  padding: 4px 10px;
+
+  border: 1px solid #211e1a;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.profile-interest-actions button:last-child {
+  background: #211e1a;
+  color: #ffffff;
+}
+
+.profile-interest-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.profile-interest-item input {
+  width: 306.5px;
+  height: 65px;
+
+  padding: 0 32px;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-bottom: 1px solid #6f6558;
+
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+}
+
+.profile-interest-item input:focus {
+  outline: none;
+  border-bottom-color: #211e1a;
+}
+
+.profile-interests-error {
+  margin-top: 12px;
+
+  color: #a52f2f;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+}
+
+.profile-favorite-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-favorite-edit {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.profile-favorite-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.profile-favorite-actions button {
+  padding: 4px 10px;
+
+  border: 1px solid #211e1a;
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.profile-favorite-actions button:last-child {
+  background: #211e1a;
+  color: #ffffff;
+}
+
+.profile-favorite-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.profile-favorite-item {
+  width: 84px;
+  height: 36px;
+}
+
+.profile-favorite-item input {
+  width: 84px;
+  height: 36px;
+
+  box-sizing: border-box;
+
+  padding: 0 8px;
+
+  border: 1px solid #211e1a;
+  border-radius: 16px;
+
+  background: transparent;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+
+  text-align: center;
+}
+
+.profile-favorite-item input:focus {
+  outline: none;
+}
+
+.profile-favorite-item button {
+  width: 84px;
+  height: 36px;
+
+  padding: 0;
+
+  border: 1px dashed #211e1a;
+  border-radius: 16px;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.profile-favorite-item button:not(:has(img)) {
+  padding: 0 8px;
+
+  border-style: solid;
+}
+
+.profile-favorite-item img {
+  width: 20px;
+  height: 20px;
+
+  display: block;
+}

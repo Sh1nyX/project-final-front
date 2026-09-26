@@ -119,3 +119,45 @@
   background: #222;
   color: #fff;
 }
+
+.listing-host-interests {
+  margin-top: 40px;
+}
+
+.listing-host-interests h3 {
+  margin: 0 0 18px;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.listing-host-interest-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.listing-host-interest {
+  min-width: 84px;
+  min-height: 36px;
+
+  padding: 0 18px;
+
+  box-sizing: border-box;
+
+  border: 1px dashed #211e1a;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  line-height: 17px;
+}

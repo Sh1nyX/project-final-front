@@ -1,0 +1,37 @@
+.profile-intro {
+  position: absolute;
+
+  left: 809px;
+  top: 143px;
+
+  width: 665px;
+}
+
+.profile-intro h1 {
+  margin: 0;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 17px;
+}
+
+.profile-intro p {
+  width: 498px;
+
+  margin: 28px 0 0;
+
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.profile-intro a {
+  color: #211e1a;
+  text-decoration: underline;
+}
