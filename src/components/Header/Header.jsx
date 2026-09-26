@@ -1,24 +1,134 @@
 import { useEffect, useState } from 'react'
 import './Header.css'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 
 import CategoryNav from '../CategoryNav/CategoryNav'
 import DatePicker from '../DatePicker/DatePicker'
 import RegionPicker from '../RegionPicker/RegionPicker'
 import GuestPicker from '../GuestPicker/GuestPicker'
 import SearchBar from '../SearchBar/SearchBar'
+import LoginModal from '../Auth/LoginModal'
+import RegisterModal from '../Auth/RegisterModal'
 
 import mapIcon from '../../assets/map-icon.svg'
 import menuIcon from '../../assets/menu-icon.svg'
 import profileIcon from '../../assets/profile-icon.svg'
 
 
-function AccountButton() {
+function AccountButton({ onLogin, onRegister }) {
+  const navigate = useNavigate()
+  const { user, isAuthenticated, logout } = useAuth()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleLogout = () => {
+    logout()
+    setIsOpen(false)
+    navigate('/')
+  }
+
+  const handleMenuClick = () => {
+    setIsOpen((current) => !current)
+  }
+
   return (
-    <button className="account-button">
-      <img src={menuIcon} alt="" />
-      <img src={profileIcon} alt="" />
-    </button>
+    <div className="account-wrapper">
+      <button
+        className="account-button"
+        type="button"
+        onClick={handleMenuClick}
+      >
+        <img src={menuIcon} alt="" />
+        <img src={profileIcon} alt="" />
+      </button>
+
+      {isOpen && (
+        <div className="account-menu">
+          {!isAuthenticated ? (
+            <>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false)
+                  onLogin()
+                }}
+              >
+                Увійти
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false)
+                  onRegister()
+                }}
+              >
+                Зареєструватися
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="account-menu-user">
+                <strong>
+                  {user?.first_name} {user?.last_name}
+                </strong>
+                <span>{user?.email}</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false)
+                  navigate('/profile')
+                }}
+              >
+                Профіль
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false)
+                  navigate('/bookings')
+                }}
+              >
+                Мої бронювання
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false)
+                  navigate('/my-listings')
+                }}
+              >
+                Мої оголошення
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false)
+                  navigate('/create-listing')
+                }}
+              >
+                Запропонувати помешкання
+              </button>
+
+              <div className="account-menu-divider" />
+
+              <button
+                type="button"
+                className="account-menu-logout"
+                onClick={handleLogout}
+              >
+                Вийти
+              </button>
+            </>
+          )}
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -35,6 +145,8 @@ function Header({
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
   const [isCategoriesCollapsed, setIsCategoriesCollapsed] = useState(false)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false)
 
   const [isRegionPickerOpen, setIsRegionPickerOpen] = useState(false)
   const [selectedRegion, setSelectedRegion] = useState(null)
@@ -177,7 +289,10 @@ function Header({
           Запропонувати помешкання на HomeFU
         </a>
 
-        <AccountButton />
+        <AccountButton
+          onLogin={() => setIsLoginModalOpen(true)}
+          onRegister={() => setIsRegisterModalOpen(true)}
+        />
 
         <SearchBar
           checkIn={checkIn}
@@ -236,7 +351,10 @@ function Header({
               isGuestPickerOpen={isGuestPickerOpen}
             />
 
-            <AccountButton />
+            <AccountButton
+              onLogin={() => setIsLoginModalOpen(true)}
+              onRegister={() => setIsRegisterModalOpen(true)}
+            />
 
           </div>
 
@@ -288,6 +406,26 @@ function Header({
           onInfantsChange={setInfants}
           onPetsChange={setPets}
           onClose={closeGuestPicker}
+        />
+      )}
+
+      {isLoginModalOpen && (
+        <LoginModal
+          onClose={() => setIsLoginModalOpen(false)}
+          onRegisterClick={() => {
+            setIsLoginModalOpen(false)
+            setIsRegisterModalOpen(true)
+          }}
+        />
+      )}
+
+      {isRegisterModalOpen && (
+        <RegisterModal
+          onClose={() => setIsRegisterModalOpen(false)}
+          onLoginClick={() => {
+            setIsRegisterModalOpen(false)
+            setIsLoginModalOpen(true)
+          }}
         />
       )}
 

@@ -1,0 +1,389 @@
+.profile-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  background: #dddbd7;
+  color: #211e1a;
+
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.profile-page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.profile-page-header {
+  width: 100%;
+  height: 120px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 37px 21px 0;
+}
+
+.profile-logo {
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 52px;
+
+  color: #211e1a;
+  cursor: pointer;
+}
+
+.profile-host-link {
+  margin-top: 12px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  color: #211e1a;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.profile-container {
+  width: 900px;
+  margin: 20px auto 0;
+
+  display: grid;
+  grid-template-columns: 650px 200px;
+  column-gap: 65px;
+}
+
+.profile-main h1 {
+  margin: 0;
+
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+.profile-description {
+  width: 500px;
+  margin: 25px 0 0;
+
+  font-size: 14px;
+  line-height: 17px;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.profile-info-section {
+  margin-top: 75px;
+}
+
+.profile-info-section h2,
+.profile-interests-section h2 {
+  margin: 0;
+
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+.profile-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 45px;
+  row-gap: 25px;
+
+  margin-top: 35px;
+}
+
+.profile-field {
+  min-height: 52px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-field label,
+.profile-bio-section label {
+  font-size: 14px;
+  line-height: 17px;
+  color: #48433d;
+}
+
+.profile-field span {
+  font-size: 15px;
+  line-height: 20px;
+  color: #211e1a;
+}
+
+.profile-field input,
+.profile-bio-section textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid #211e1a;
+  border-radius: 7px;
+
+  background: #f3f2f0;
+
+  color: #211e1a;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+}
+
+.profile-field input {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.profile-field input:focus,
+.profile-bio-section textarea:focus {
+  outline: none;
+  border-color: #6f6558;
+}
+
+
+/* =========================
+   BIO
+========================= */
+
+.profile-bio-section {
+  margin-top: 35px;
+}
+
+.profile-bio-value {
+  width: 100%;
+  min-height: 72px;
+  margin-top: 10px;
+
+  box-sizing: border-box;
+  padding: 16px;
+
+  border: 1px dashed #6f6558;
+
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.profile-bio-section textarea {
+  min-height: 110px;
+  margin-top: 10px;
+
+  padding: 12px;
+  resize: vertical;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.profile-actions button {
+  min-height: 42px;
+
+  padding: 0 20px;
+
+  border: 1px solid #211e1a;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #211e1a;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.profile-actions button:hover {
+  background: #e8e5e1;
+}
+
+.profile-save-button {
+  background: #211e1a !important;
+  color: #ffffff !important;
+}
+
+.profile-actions button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.profile-success {
+  margin-top: 15px;
+
+  color: #38734b;
+  font-size: 13px;
+}
+
+.profile-error {
+  margin-top: 15px;
+
+  color: #a52f2f;
+  font-size: 13px;
+}
+
+
+/* =========================
+   INTERESTS
+========================= */
+
+.profile-interests-section {
+  margin-top: 70px;
+  padding-bottom: 70px;
+}
+
+.profile-interests-section h2 {
+  font-size: 20px;
+}
+
+.profile-interests-section > p {
+  width: 620px;
+  margin: 18px 0 30px;
+
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #48433d;
+}
+
+.profile-placeholder-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 45px;
+}
+
+.profile-placeholder-fields div {
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid #bcb7b0;
+
+  color: #48433d;
+  font-size: 14px;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 55px;
+}
+
+.profile-avatar-wrapper {
+  width: 200px;
+  height: 200px;
+}
+
+.profile-avatar {
+  width: 200px;
+  height: 200px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+.profile-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #6f6558;
+
+  color: #ffffff;
+
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 64px;
+}
+
+.profile-avatar-button {
+  margin-top: 15px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #211e1a;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.profile-page-footer {
+  width: 100%;
+  min-height: 70px;
+
+  box-sizing: border-box;
+  padding: 25px 22.5%;
+
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  border-top: 1px solid #47433c;
+
+  color: #6f6558;
+  font-size: 12px;
+}
+
+.profile-page-footer a {
+  color: #6f6558;
+  text-decoration: underline;
+}
+
+.profile-footer-right {
+  margin-left: auto;
+
+  display: flex;
+  gap: 30px;
+
+  color: #2c2823;
+  font-size: 14px;
+}
