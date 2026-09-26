@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './ListingHeader.css'
 
 import searchIcon from '../../../assets/search-icon.svg'
-import menuIcon from '../../../assets/menu-icon.svg'
-import profileIcon from '../../../assets/profile-icon.svg'
+import AccountMenu from '../../Auth/AccountMenu'
 
 function ListingHeader({ listing }) {
   const navigate = useNavigate()
@@ -54,20 +53,7 @@ function ListingHeader({ listing }) {
           Запропонувати помешкання на HomeFU
         </a>
 
-        <button
-          type="button"
-          className="listing-account-button"
-        >
-          <img
-            src={menuIcon}
-            alt=""
-          />
-
-          <img
-            src={profileIcon}
-            alt=""
-          />
-        </button>
+        <AccountMenu buttonClassName="listing-account-button" />
 
       </div>
 

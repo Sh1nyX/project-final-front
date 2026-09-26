@@ -2,8 +2,7 @@ import './ResultsHeader.css'
 
 import { useNavigate } from 'react-router-dom'
 
-import menuIcon from '../../../assets/menu-icon.svg'
-import profileIcon from '../../../assets/profile-icon.svg'
+import AccountMenu from '../../Auth/AccountMenu'
 
 function ResultsHeader() {
 
@@ -52,20 +51,7 @@ function ResultsHeader() {
             Запропонувати помешкання...
           </a>
 
-          <button
-            className="results-profile-button"
-            type="button"
-          >
-            <img
-              src={menuIcon}
-              alt=""
-            />
-
-            <img
-              src={profileIcon}
-              alt=""
-            />
-          </button>
+          <AccountMenu buttonClassName="results-profile-button" />
 
         </div>
 
