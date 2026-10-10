@@ -1,0 +1,47 @@
+.booking-trip-section {
+  padding: 12px 0 25px;
+  border-bottom: 1px solid #79736b;
+}
+
+.booking-trip-section h2 {
+  margin: 5px 0 19px;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.booking-detail-row {
+  min-height: 51px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.booking-detail-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.booking-detail-row strong {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.booking-detail-row span {
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.booking-edit-button {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #211e1a;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
+}

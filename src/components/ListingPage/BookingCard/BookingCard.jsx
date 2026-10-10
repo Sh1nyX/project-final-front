@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import './BookingCard.css'
 
 function getNights(checkIn, checkOut) {
@@ -30,19 +32,26 @@ function formatDate(value) {
   ).padStart(2, '0')}.${year}`
 }
 
+function getGuestLabel(count) {
+  if (count === 1) return '1 гість'
+  if (count >= 2 && count <= 4) return `${count} гості`
+
+  return `${count} гостей`
+}
+
 function BookingCard({
   listing,
   checkIn,
   checkOut,
   onGuestsClick,
+  guests = 1,
 }) {
+  const navigate = useNavigate()
+
   const pricePerNight =
     Number(listing.price_per_night) || 0
 
-  const nights = getNights(
-    checkIn,
-    checkOut
-  )
+  const nights = getNights(checkIn, checkOut)
 
   const accommodationTotal =
     pricePerNight * nights
@@ -51,10 +60,9 @@ function BookingCard({
     Boolean(checkIn && checkOut && nights > 0)
 
   const handleDateClick = () => {
-    const calendar =
-      document.querySelector(
-        '.availability-calendar'
-      )
+    const calendar = document.querySelector(
+      '.availability-calendar'
+    )
 
     if (calendar) {
       calendar.scrollIntoView({
@@ -64,19 +72,32 @@ function BookingCard({
     }
   }
 
+  // Переход выполняется только после клика по кнопке.
+  const handleReserve = () => {
+    if (!hasDates) {
+      return
+    }
+
+    const params = new URLSearchParams()
+
+    params.set('check_in', checkIn)
+    params.set('check_out', checkOut)
+    params.set('guests', String(guests))
+
+    navigate(
+      `/booking/${listing.id}?${params.toString()}`
+    )
+  }
+
   return (
     <aside className="booking-card">
 
       <div className="booking-price">
-
         <strong>
           ₴ {pricePerNight.toLocaleString('uk-UA')}
         </strong>
 
-        <span>
-          за ніч
-        </span>
-
+        <span>за ніч</span>
       </div>
 
       <div className="booking-fields">
@@ -119,7 +140,7 @@ function BookingCard({
           </span>
 
           <span className="booking-value">
-            {listing.max_guests || 1} гостя
+            {getGuestLabel(guests)}
           </span>
         </button>
 
@@ -129,6 +150,7 @@ function BookingCard({
         type="button"
         className="booking-button"
         disabled={!hasDates}
+        onClick={handleReserve}
       >
         Забронювати
       </button>
@@ -142,12 +164,10 @@ function BookingCard({
 
           <div className="booking-summary-row">
             <span>
-              ₴ {pricePerNight.toLocaleString('uk-UA')}{' '}
-              × {nights} {
-                nights === 1
-                  ? 'ніч'
-                  : 'ночі'
-              }
+              ₴ {pricePerNight.toLocaleString('uk-UA')}
+              {' × '}
+              {nights}{' '}
+              {nights === 1 ? 'ніч' : 'ночі'}
             </span>
 
             <strong>

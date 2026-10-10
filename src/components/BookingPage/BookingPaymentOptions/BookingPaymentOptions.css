@@ -1,0 +1,71 @@
+.booking-payment-section {
+  padding: 23px 0 27px;
+  border-bottom: 1px solid #79736b;
+}
+
+.booking-payment-section h2 {
+  margin: 0 0 14px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.booking-payment-options {
+  overflow: hidden;
+  border: 1px solid #47433c;
+  border-radius: 14px;
+}
+
+.booking-payment-option {
+  min-height: 69px;
+  padding: 14px 12px 12px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.booking-payment-option + .booking-payment-option {
+  border-top: 1px solid #47433c;
+}
+
+.booking-payment-option.selected {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.booking-payment-option input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin: 1px 0 0 auto;
+  border: 1px solid #211e1a;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.booking-payment-option input:checked {
+  border: 5px solid #211e1a;
+}
+
+.booking-payment-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  order: -1;
+}
+
+.booking-payment-copy strong {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.booking-payment-copy > span {
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.booking-payment-note {
+  color: #6f6558;
+  font-size: 11px !important;
+}

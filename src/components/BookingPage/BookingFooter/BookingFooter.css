@@ -1,0 +1,31 @@
+.booking-footer {
+  min-height: 64px;
+  padding: 15px max(26px, calc((100% - 1130px) / 2));
+  border-top: 1px solid #79736b;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  color: #6f6558;
+  font-size: 11px;
+}
+
+.booking-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.booking-footer-spacer {
+  flex: 1;
+}
+
+@media (max-width: 760px) {
+  .booking-footer {
+    padding: 18px 20px;
+    gap: 14px 18px;
+  }
+
+  .booking-footer-spacer {
+    display: none;
+  }
+}

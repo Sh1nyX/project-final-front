@@ -1,0 +1,19 @@
+.booking-header {
+  height: 72px;
+  min-height: 72px;
+  padding: 0 26px;
+  border-bottom: 1px solid #79736b;
+  display: flex;
+  align-items: center;
+}
+
+.booking-logo {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #211e1a;
+  font-family: 'Inknut Antiqua', serif;
+  font-size: 28px;
+  font-weight: 600;
+  cursor: pointer;
+}

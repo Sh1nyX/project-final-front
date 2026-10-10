@@ -1,0 +1,27 @@
+.booking-info-banner {
+  min-height: 96px;
+  padding: 19px 20px;
+  border: 1px solid #47433c;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.booking-info-banner h2 {
+  margin: 0 0 7px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.booking-info-banner p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.booking-info-icon {
+  flex-shrink: 0;
+  font-size: 25px;
+}

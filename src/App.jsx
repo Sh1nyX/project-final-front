@@ -9,6 +9,7 @@ import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage'
 import ListingPage from './components/ListingPage/ListingPage'
 import ProfilePage from './components/ProfilePage/ProfilePage'
 import ListingsMapModal from './components/ListingsMapModal/ListingsMapModal'
+import BookingPage from './components/BookingPage/BookingPage'
 
 import { getListings } from './services/api'
 
@@ -196,7 +197,14 @@ function App() {
         path="/profile" 
         element={<ProfilePage />} 
       />
+
+      <Route
+        path="/booking/:id"
+        element={<BookingPage />}
+      />
     </Routes>
+
+    
 
     
   )
