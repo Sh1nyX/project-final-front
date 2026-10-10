@@ -1,0 +1,40 @@
+
+.my-bookings-empty {
+  padding: 56px 24px;
+  border: 1px dashed #aaa198;
+  border-radius: 18px;
+  text-align: center;
+  color: #211e1a;
+}
+
+.my-bookings-empty-icon {
+  margin-bottom: 15px;
+  color: #6f6558;
+  font-size: 42px;
+}
+
+.my-bookings-empty h2 {
+  margin: 0;
+  font: 600 21px/1.5 'Inknut Antiqua', serif;
+}
+
+.my-bookings-empty p {
+  max-width: 450px;
+  margin: 12px auto 22px;
+  color: #625b53;
+  font: 400 14px/1.7 'Nunito Sans', sans-serif;
+}
+
+.my-bookings-explore-button {
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 12px;
+  background: #6f6558;
+  color: #fff;
+  font: 600 14px 'Nunito Sans', sans-serif;
+  cursor: pointer;
+}
+
+.my-bookings-explore-button:hover {
+  background: #544b40;
+}
