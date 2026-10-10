@@ -1,0 +1,163 @@
+
+.create-listing-form-page {
+  width: min(780px, calc(100% - 32px));
+  margin: 28px auto 64px;
+  color: #211e1a;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.create-listing-form-heading {
+  margin-bottom: 28px;
+}
+
+.create-listing-form-heading > span {
+  color: #6f6558;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.create-listing-form-heading h1 {
+  margin: 12px 0;
+  font: 700 28px/1.35 'Inknut Antiqua', serif;
+}
+
+.create-listing-form-heading p {
+  max-width: 620px;
+  color: #625b53;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.create-listing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listing-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  border: 1px solid #c4beb6;
+  border-radius: 16px;
+  background: #e9e7e3;
+}
+
+.listing-form-section h2 {
+  margin: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #c4beb6;
+  font: 700 18px/1.4 'Inknut Antiqua', serif;
+}
+
+.listing-form-section label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.listing-form-section input,
+.listing-form-section textarea,
+.listing-form-section select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #918b82;
+  border-radius: 9px;
+  background: #f1efeb;
+  color: #211e1a;
+  font: 400 14px/1.5 'Nunito Sans', sans-serif;
+}
+
+.listing-form-section input {
+  min-height: 46px;
+}
+
+.listing-form-section textarea {
+  resize: vertical;
+}
+
+.listing-form-section input:focus,
+.listing-form-section textarea:focus,
+.listing-form-section select:focus {
+  outline: 2px solid rgb(111 101 88 / 25%);
+  border-color: #6f6558;
+}
+
+.listing-form-section label > small {
+  color: #625b53;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.listing-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.listing-form-grid-four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.create-listing-form-error {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid #d8aaa4;
+  border-radius: 9px;
+  background: #f7e9e6;
+  color: #912f27;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.create-listing-submit {
+  align-self: flex-end;
+  min-height: 48px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 10px;
+  background: #6f6558;
+  color: #fff;
+  font: 700 14px 'Nunito Sans', sans-serif;
+  cursor: pointer;
+}
+
+.create-listing-submit:hover {
+  background: #544b40;
+}
+
+.create-listing-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+@media (max-width: 600px) {
+  .create-listing-form-page {
+    margin-top: 20px;
+  }
+
+  .create-listing-form-heading h1 {
+    font-size: 22px;
+  }
+
+  .listing-form-section {
+    padding: 17px;
+  }
+
+  .listing-form-grid,
+  .listing-form-grid-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .create-listing-submit {
+    width: 100%;
+  }
+}

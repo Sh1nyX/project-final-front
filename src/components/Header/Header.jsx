@@ -20,6 +20,7 @@ function AccountButton({ onLogin, onRegister }) {
   const navigate = useNavigate()
   const { user, isAuthenticated, logout } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
+  
 
   const handleLogout = () => {
     logout()
@@ -142,6 +143,7 @@ function Header({
   onMapOpen,
 }) {
   const navigate = useNavigate()
+  const { isAuthenticated } = useAuth()
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
@@ -164,6 +166,17 @@ function Header({
   const [flexibleDays, setFlexibleDays] = useState(0)
 
   const [activeDateField, setActiveDateField] = useState(null)
+
+  const handleHostClick = (event) => {
+  event.preventDefault()
+
+  if (!isAuthenticated) {
+    setIsLoginModalOpen(true)
+    return
+  }
+
+  navigate('/create-listing')
+}
 
   const openDatePicker = (field) => {
     setActiveDateField(field)
@@ -286,7 +299,11 @@ function Header({
           <a href="#">Онлайн-враження</a>
         </nav>
 
-        <a href="#" className="host-link">
+        <a
+          href="/create-listing"
+          className="host-link"
+          onClick={handleHostClick}
+        >
           Запропонувати помешкання на HomeFU
         </a>
 

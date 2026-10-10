@@ -1,0 +1,40 @@
+
+.create-listing-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #dddbd7;
+  color: #211e1a;
+}
+
+.create-listing-main {
+  flex: 1;
+}
+
+.create-listing-message {
+  width: min(540px, calc(100% - 32px));
+  margin: 90px auto;
+  text-align: center;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.create-listing-message h1 {
+  font: 700 24px/1.4 'Inknut Antiqua', serif;
+}
+
+.create-listing-message p {
+  color: #625b53;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.create-listing-message button {
+  margin-top: 12px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: #6f6558;
+  color: #fff;
+  font: 700 14px 'Nunito Sans', sans-serif;
+  cursor: pointer;
+}

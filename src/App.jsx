@@ -11,6 +11,7 @@ import ProfilePage from './components/ProfilePage/ProfilePage'
 import ListingsMapModal from './components/ListingsMapModal/ListingsMapModal'
 import BookingPage from './components/BookingPage/BookingPage'
 import MyBookingsPage from './components/MyBookingsPage/MyBookingsPage'
+import CreateListingPage from './components/CreateListingPage/CreateListingPage'
 
 import { getListings } from './services/api'
 
@@ -207,6 +208,11 @@ function App() {
       <Route
         path="/bookings"
         element={<MyBookingsPage />}
+      />
+
+      <Route
+        path="/create-listing"
+        element={<CreateListingPage />}
       />
     </Routes>
 
