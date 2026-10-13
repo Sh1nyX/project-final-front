@@ -104,3 +104,82 @@
   font-size: 10px;
   line-height: 15px;
 }
+
+/* ========================================
+   RESPONSIVE LISTING CARDS
+======================================== */
+
+@media (max-width: 1500px) {
+  .listing-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .listing-image-wrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.0625 / 1;
+  }
+
+  .listing-location-row {
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .listing-location-row h3 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+
+/* ========================================
+   MOBILE CARDS
+======================================== */
+
+@media (max-width: 600px) {
+  .listing-image-wrapper {
+    border-radius: 12px;
+  }
+
+  .favorite-button {
+    top: 8px;
+    right: 8px;
+  }
+
+  .listing-info {
+    padding-top: 6px;
+  }
+
+  .listing-location-row h3 {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .listing-rating {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .listing-details {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .listing-price {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
+
+
+/* Одна широка картка на вузьких телефонах */
+@media (max-width: 420px) {
+  .listing-location-row h3 {
+    font-size: 12px;
+  }
+
+  .listing-details {
+    font-size: 12px;
+  }
+}

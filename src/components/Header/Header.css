@@ -394,3 +394,343 @@
 .header-scrolled > .category-nav {
   visibility: hidden;
 }
+
+/* ========================================
+   TABLETS AND SMALL LAPTOPS
+======================================== */
+
+@media (min-width: 1051px) and (max-width: 1300px) {
+  .logo {
+    left: 3%;
+    width: auto;
+    font-size: 28px;
+  }
+
+  .header-nav {
+    left: 25%;
+    gap: 18px;
+  }
+
+  .header-nav a,
+  .host-link {
+    font-size: 11px;
+  }
+
+  .host-link {
+    left: auto;
+    right: 12%;
+  }
+
+  .account-wrapper {
+    left: auto;
+    right: 3%;
+    width: 78px;
+  }
+
+  .search-bar {
+    left: 20%;
+    width: 59%;
+    padding-left: 20px;
+    padding-right: 8px;
+  }
+
+  .search-field.destination {
+    width: 190px;
+  }
+
+  .search-field:not(.destination) {
+    width: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .map-button {
+    left: auto;
+    right: 3%;
+    width: 150px;
+  }
+
+  .category-nav {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .category-list {
+    width: calc(100% - 420px);
+    gap: 8px;
+  }
+
+  .category-item {
+    width: 76px;
+  }
+
+  .filters-button {
+    width: 95px;
+    margin-left: 10px;
+  }
+
+  .tax-toggle {
+    width: 230px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 8px;
+    font-size: 10px;
+  }
+}
+
+
+/* ========================================
+   TABLETS AND MOBILE
+======================================== */
+
+@media (max-width: 1050px) {
+  .header {
+    height: auto;
+    min-height: 0;
+    padding: 0 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logo {
+    top: 12px;
+    left: 16px;
+    width: auto;
+
+    font-size: 27px;
+  }
+
+  .header-nav,
+  .host-link {
+    display: none;
+  }
+
+  .account-wrapper {
+    top: 12px;
+    left: auto;
+    right: 16px;
+
+    width: 76px;
+    height: 42px;
+  }
+
+  .search-row {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+
+    margin: 72px 0 0;
+    padding: 0;
+  }
+
+  .search-bar {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .map-button {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+
+    align-self: flex-end;
+
+    width: 150px;
+    height: 42px;
+
+    margin: 10px 0 0;
+    border-radius: 18px;
+
+    flex-shrink: 0;
+  }
+
+  .map-button span:first-child {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .map-button img {
+    width: 17px;
+    height: 16px;
+  }
+
+  .category-nav {
+    position: relative;
+    top: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+
+    margin-top: 8px;
+    padding: 0;
+  }
+
+  .header-scrolled > .category-nav {
+    visibility: visible;
+  }
+
+  /* Компактну десктопну шапку замінює адаптивна */
+  .compact-header {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   MOBILE HEADER FIX
+======================================== */
+
+@media (max-width: 1050px) {
+  .header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    padding: 0 16px 20px;
+  }
+
+  /* Logo */
+  .header > .logo {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+
+    width: auto;
+    max-width: calc(100% - 120px);
+
+    font-size: clamp(23px, 6vw, 27px);
+    line-height: 1.2;
+
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .header > .logo:visited,
+  .header > .logo:hover,
+  .header > .logo:active {
+    text-decoration: none;
+  }
+
+  /* Account button */
+  .header > .account-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    left: auto;
+
+    width: 68px;
+    height: 42px;
+
+    z-index: 1100;
+  }
+
+  .header > .account-wrapper .account-button {
+    position: static;
+
+    width: 68px;
+    height: 42px;
+
+    gap: 6px;
+  }
+
+  .account-button img:last-child {
+    width: 23px;
+    height: 23px;
+  }
+
+  /* Search under the top row */
+  .header > .search-row {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+
+    margin: 70px 0 0;
+    padding: 0;
+
+    transform: none;
+  }
+
+  .header > .search-row .search-bar {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+
+    transform: none;
+  }
+
+  /* Map button below search, never beside the logo */
+  .header > .map-button {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    align-self: flex-end;
+    flex-shrink: 0;
+
+    width: 145px;
+    height: 42px;
+
+    margin: 12px 0 0;
+    padding: 0;
+
+    border-radius: 22px;
+    transform: none !important;
+  }
+
+  .header > .map-button span:first-child {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .header > .map-button img {
+    width: 17px;
+    height: 16px;
+  }
+
+  /* Categories under the search */
+  .header > .category-nav {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    width: 100%;
+    height: auto;
+
+    margin-top: 12px;
+    padding: 0;
+  }
+
+  /* Hide the desktop sticky header on mobile */
+  .compact-header {
+    display: none !important;
+  }
+}

@@ -323,3 +323,112 @@
 .compact-search-bar .guests-selected .field-placeholder {
   color: #ffffff;
 }
+
+/* ========================================
+   RESPONSIVE SEARCH
+======================================== */
+
+@media (max-width: 1050px) {
+  .search-bar {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      42px;
+
+    grid-template-areas:
+      "destination destination destination"
+      "checkin checkout search"
+      "guests guests guests";
+
+    gap: 4px;
+    padding: 8px;
+
+    border-radius: 20px;
+  }
+
+  .search-separator {
+    display: none;
+  }
+
+  .search-bar .search-field {
+    width: auto;
+    min-width: 0;
+    height: 42px;
+
+    padding: 4px 8px;
+
+    border-radius: 14px;
+  }
+
+  .search-bar .search-field.destination {
+    grid-area: destination;
+    width: auto;
+    padding-left: 10px;
+  }
+
+  .search-bar .search-field.date-field:nth-of-type(2) {
+    grid-area: checkin;
+  }
+
+  .search-bar .search-field.date-field:nth-of-type(3) {
+    grid-area: checkout;
+  }
+
+  .search-bar .search-field.guests {
+    grid-area: guests;
+  }
+
+  .search-bar .field-title {
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .search-bar .field-placeholder,
+  .search-bar .date-input-button {
+    display: block;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  .search-bar .date-field-selected,
+  .search-bar .guests-selected,
+  .search-bar .destination-selected {
+    height: 42px;
+    padding: 5px 8px;
+    border-radius: 14px;
+  }
+
+  .search-bar .destination-selected::before {
+    left: -10px;
+    top: 0;
+
+    width: calc(100% + 20px);
+    height: 42px;
+
+    border-radius: 14px;
+  }
+
+  .search-bar .search-button {
+    grid-area: search;
+    justify-self: end;
+    align-self: center;
+
+    width: 42px;
+    height: 42px;
+    margin: 0;
+  }
+
+  .search-bar .search-button img {
+    width: 23px;
+    height: 23px;
+  }
+}
